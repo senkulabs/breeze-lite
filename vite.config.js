@@ -16,7 +16,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': resolve(__dirname, 'resource/js')
+            '@': resolve(__dirname, 'resources/js')
         },
         extensions: ['.js', '.svelte', '.json']
     }
