@@ -51,7 +51,7 @@
         <div class="mt-4">
             <InputLabel for="password" value="Password" />
             <TextInput id="password" class="block mt-1 w-full" type="password" name="password" bind:value={$form.password} required autocomplete="current-password"/>
-            <InputError messages={$form.errors.password} class="mt-2" />
+            <InputError message={$form.errors.password} class="mt-2" />
         </div>
 
         <!-- Remember Me -->
