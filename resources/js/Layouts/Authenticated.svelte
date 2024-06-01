@@ -43,7 +43,6 @@
                                     class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
                                 >
                                     {$page.props.auth.user.name}
-
                                     <svg
                                         class="ml-2 -mr-0.5 h-4 w-4"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -61,9 +60,7 @@
 
                             <div slot="content">
                                 <DropdownLink href={route('profile.edit')}> Profile </DropdownLink>
-                                <DropdownLink href={route('logout')} method="post" as="button">
-                                    Log Out
-                                </DropdownLink>
+                                <DropdownLink href={route('logout')} method="post" type="button">Log Out</DropdownLink>
                             </div>
                         </Dropdown>
                     </div>
@@ -117,7 +114,7 @@
 
                 <div class="mt-3 space-y-1">
                     <ResponsiveNavLink href={route("profile.edit")}> Profile </ResponsiveNavLink>
-                    <ResponsiveNavLink href={route("logout")} method="post" as="button">
+                    <ResponsiveNavLink href={route("logout")} method="post" type="button">
                         Log Out
                     </ResponsiveNavLink>
                 </div>
