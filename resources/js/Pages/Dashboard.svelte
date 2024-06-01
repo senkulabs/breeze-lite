@@ -1,14 +1,5 @@
 <script>
-    import { inertia, page } from '@inertiajs/svelte';
-    import route from '@/ziggy.js';
     import AuthenticatedLayout from '@/Layouts/Authenticated.svelte';
-    import ApplicationLogo from '@/Components/ApplicationLogo.svelte';
-    import ResponsiveNavLink from '@/Components/ResponsiveNavLink.svelte';
-    import NavLink from '@/Components/NavLink.svelte';
-    import Dropdown from '@/Components/Dropdown.svelte';
-    import DropdownLink from '@/Components/DropdownLink.svelte';
-
-    let showingNavigationDropdown = false;
 </script>
 
 <svelte:head>
