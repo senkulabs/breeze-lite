@@ -7,7 +7,7 @@
     import { inertia, useForm, page } from '@inertiajs/svelte';
 
     export let mustVerifyEmail = false;
-    export let status;
+    export let status = '';
 
     let className;
     export { className as class };
@@ -32,6 +32,37 @@
         <div>
             <InputLabel for="name" value="Name"/>
             <TextInput id="name" type="text" class="mt-1 block w-full" bind:value={$form.name} required autofocus autocomplete="name"/>
+            <InputError class="mt-2" message={$form.errors.name}/>
+        </div>
+
+        <div>
+            <InputLabel for="email" value="Email"/>
+            <TextInput id="email" type="email" class="mt-1 block w-full" bind:value={$form.email} required autofocus autocomplete="username"/>
+            <InputError class="mt-2" message={$form.errors.email}/>
+        </div>
+
+        {#if mustVerifyEmail && user.email_verified_at === null}
+            <div>
+                <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
+                    Your email address is unverified.
+                    <button use:inertia="{{ href: 'logout', method: 'post' }}" type="button"
+                        class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">Click here to re-send the verification email.</button>
+                </p>
+
+                {#if status === 'verification-link-sent'}
+                    <div class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
+                        A new verification link has been sent to your email address.
+                    </div>
+                {/if}
+            </div>
+        {/if}
+
+        <div class="flex items-center gap-4">
+            <PrimaryButton processing={$form.processing}>Save</PrimaryButton>
+
+            {#if $form.recentlySuccessful}
+                <p class="text-sm text-gray-600 dark:text-gray-400">Saved</p>
+            {/if}
         </div>
     </form>
 </section>
