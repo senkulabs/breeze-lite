@@ -1,6 +1,6 @@
 {
-    "name": "senku/lite-st",
-    "description": "Laravel + Inertia + Svelte. It's lite! I like it!",
+    "name": "senku/lite",
+    "description": "Lite is an acronym of Laravel + Inertia + Svelte web development stack. Currently, Laravel doesn't support Laravel Breeze with Inertia + Svelte, so I create my own.",
     "keywords": ["lite", "laravel", "inertia", "svelte"],
     "license": "MIT",
     "require": {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Senku\\Lite": "src/"
+            "Senku\\Lite\\": "src/"
         }
     },
     "extra": {
