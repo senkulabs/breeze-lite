@@ -30,15 +30,15 @@
 </script>
 
 <div class="relative">
-    <button on:click={() => open = !open}>
+    <button onclick={() => open = !open}>
         <slot name="trigger"/>
     </button>
 
     <!-- Full Screen Dropdown Overlay -->
     {#if open}
-        <button class="fixed inset-0 z-40 select-none" on:click={() => open = false}></button>
+        <button class="fixed inset-0 z-40 select-none" onclick={() => open = false}></button>
         <button class="absolute z-50 mt-2 rounded-md shadow-lg w-{width} {alignmentClasses}"
-        on:click={() => open = false}>
+        onclick={() => open = false}>
             <div class={`rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white dark:bg-gray-700`}>
                 <slot name="content"/>
             </div>

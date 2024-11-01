@@ -1,23 +1,19 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { resolve } from 'path';
+import './bootstrap.js';
+import '../css/app.css';
 
-export default defineConfig({
-    plugins: [
-        laravel({
-            input: [
-                'resources/css/app.css',
-                'resources/js/app.js',
-            ],
-            refresh: true,
-        }),
-        svelte({})
-    ],
-    resolve: {
-        alias: {
-            '@': resolve(__dirname, 'resources/js')
-        },
-        extensions: ['.js', '.svelte', '.json']
+import { createInertiaApp } from "@inertiajs/svelte";
+import { hydrate, mount } from 'svelte';
+
+createInertiaApp({
+    resolve: name => {
+        const pages = import.meta.glob('./Pages/**/*.svelte', { eager: true });
+        return pages[`./Pages/${name}.svelte`];
+    },
+    setup({ el, App, props }) {
+        if (el.dataset.serverRendered === 'true') {
+            hydrate(App, { target: el, props });
+        } else {
+            mount(App, { target: el, props });
+        }
     }
 });

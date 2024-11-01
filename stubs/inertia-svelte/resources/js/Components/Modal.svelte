@@ -43,7 +43,7 @@
 
 {#if show}
 <div class="fixed inset-0 z-50 px-4 py-6 overflow-y-auto sm:px-0">
-    <button class="fixed inset-0 transition-all transform-select-none" on:click={() => close}>
+    <button class="fixed inset-0 transition-all transform-select-none" onclick={() => close}>
         <div class="absolute inset-0 bg-gray-500 opacity-75 dark:bg-gray-900"></div>
     </button>
 

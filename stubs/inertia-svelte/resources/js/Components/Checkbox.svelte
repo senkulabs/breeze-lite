@@ -16,4 +16,4 @@
 </script>
 
 <input type="checkbox" {name} {value} {id} class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-bind:this={input} on:input={update}/>
+bind:this={input} oninput={update}/>

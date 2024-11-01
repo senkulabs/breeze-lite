@@ -17,6 +17,6 @@
  {type}
  disabled={processing}
  bind:this={input}
- on:click={onclick}>
+ onclick={onclick}>
     <slot />
 </button>

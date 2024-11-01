@@ -15,4 +15,4 @@
 <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm {className}"
 {type} {name} {id} {value} {autocomplete} {required}
 bind:this={input}
-on:input={update}>
+oninput={update}>

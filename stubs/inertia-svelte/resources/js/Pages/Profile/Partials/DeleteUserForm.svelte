@@ -53,7 +53,7 @@
         </p>
     </header>
 
-    <DangerButton type="button" on:click={confirmUserDeletion}>Delete Account</DangerButton>
+    <DangerButton type="button" onclick={confirmUserDeletion}>Delete Account</DangerButton>
 
     {#if confirmingUserDeletion}
         <Modal on:close={closeModal} show={confirmUserDeletion}>
@@ -93,14 +93,14 @@
                 </div>
 
                 <div class="mt-6 flex justify-end">
-                    <SecondaryButton on:click={closeModal}>
+                    <SecondaryButton onclick={closeModal}>
                         Cancel
                     </SecondaryButton>
 
                     <DangerButton
                         class="ml-3"
                         processing={$form.processing}
-                        on:click={deleteUser}
+                        onclick={deleteUser}
                     >
                         Delete Account
                     </DangerButton>
