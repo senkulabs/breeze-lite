@@ -1,11 +1,17 @@
-# Lite Stack
+# Breeze Lite
 
-Lite is an acronym of Laravel + Inertia + Svelte web development stack. Currently, Laravel doesn't support Laravel Breeze with Inertia + Svelte, so I create my own.
+Unofficial Laravel Breeze for Laravel + Inertia + Svelte.
 
-## Specifications
+> Lite = Laravel + Inertia + Svelte. I like it!
 
-- Laravel version 11.x
-- Inertia version 1.x
-- Svelte version 4.x
+## How to use?
 
+```
+composer require senkulabs/breeze-lite --dev
+php artisan breeze:install
+# Choose: Svelte with Inertia
+```
 
+## Courtesy
+
+This project use Svelte 5 and Inertia version 2 (currently beta). The Svelte components come from [pedroborges/laravel-breeze-svelte](https://github.com/pedroborges/laravel-breeze-svelte). Currently, I use `js` version NOT the `ts` version.
