@@ -4,7 +4,7 @@
     import UpdatePasswordForm from './Partials/UpdatePasswordForm.svelte';
     import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.svelte';
 
-    export let mustVerifyEmail, status;
+    let { mustVerifyEmail, status } = $props();
 </script>
 
 <svelte:head>
@@ -12,7 +12,9 @@
 </svelte:head>
 
 <AuthenticatedLayout>
-    <h2 slot="header" class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Profile</h2>
+    {#snippet header()}
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Profile</h2>
+    {/snippet}
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">

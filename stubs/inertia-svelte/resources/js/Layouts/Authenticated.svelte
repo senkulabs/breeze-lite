@@ -5,9 +5,11 @@
     import NavLink from '@/Components/NavLink.svelte';
     import ResponsiveNavLink from '@/Components/ResponsiveNavLink.svelte';
     import { inertia, page } from '@inertiajs/svelte';
-    import route from '@/ziggy.js';
+    import { route } from 'ziggy-js';
 
-    let showingNavigationDropdown = false;
+    let { children, header } = $props();
+
+    let showingNavigationDropdown = $state(false);
 </script>
 
 <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -37,7 +39,8 @@
                     <!-- Settings Dropdown -->
                     <div class="ml-3 relative">
                         <Dropdown align="right" width="48">
-                            <span slot="trigger" class="inline-flex rounded-md">
+                            {#snippet trigger()}
+                            <span class="inline-flex rounded-md">
                                 <button
                                     type="button"
                                     class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
@@ -57,19 +60,21 @@
                                     </svg>
                                 </button>
                             </span>
+                            {/snippet}
 
-                            <div slot="content">
+                            {#snippet content()}
                                 <DropdownLink href={route('profile.edit')}> Profile </DropdownLink>
-                                <DropdownLink href={route('logout')} method="post" type="button">Log Out</DropdownLink>
-                            </div>
+                                <DropdownLink href={route('logout')} method="post" as="button">Log Out</DropdownLink>
+                            {/snippet}
                         </Dropdown>
                     </div>
                 </div>
 
                 <!-- Hamburger -->
                 <div class="-mr-2 flex items-center sm:hidden">
+                    <!-- svelte-ignore a11y_consider_explicit_label -->
                     <button
-                        on:click={() => showingNavigationDropdown = !showingNavigationDropdown}
+                        onclick={() => showingNavigationDropdown = !showingNavigationDropdown}
                         class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out"
                     >
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -113,26 +118,24 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
-                    <ResponsiveNavLink href={route("profile.edit")}> Profile </ResponsiveNavLink>
-                    <ResponsiveNavLink href={route("logout")} method="post" type="button">
-                        Log Out
-                    </ResponsiveNavLink>
+                    <ResponsiveNavLink href={route("profile.edit")} active={route().current('profile.edit')}>Profile</ResponsiveNavLink>
+                    <ResponsiveNavLink href={route("logout")} method="post" type="button">Log Out</ResponsiveNavLink>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Page Heading -->
-    {#if $$slots.header}
+    {#if header}
         <header class="bg-white dark:bg-gray-800 shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                <slot name="header" />
+                {@render header()}
             </div>
         </header>
     {/if}
 
     <!-- Page Content -->
     <main>
-        <slot />
+        {@render children()}
     </main>
 </div>

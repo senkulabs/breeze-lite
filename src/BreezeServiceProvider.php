@@ -1,11 +1,10 @@
 <?php
 
-namespace Senku\Lite;
+namespace SenkuLabs\Breeze;
 
-use Illuminate\Contracts\Support\DeferrableProvider;
-use Illuminate\Support\ServiceProvider;
+use Laravel\Breeze\BreezeServiceProvider as LaravelBreezeServiceProvider;
 
-class LiteServiceProvider extends ServiceProvider implements DeferrableProvider
+class BreezeServiceProvider extends LaravelBreezeServiceProvider
 {
     /**
      * Register any application services.

@@ -5,7 +5,7 @@
     import TextInput from '@/Components/TextInput.svelte';
     import InputError from '@/Components/InputError.svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
-    import route from '@/ziggy';
+    import { route } from 'ziggy-js';
 
     const form = useForm({
         name: '',
@@ -15,7 +15,8 @@
         terms: false
     });
 
-    const onSubmit = () => {
+    const onSubmit = (event) => {
+        event.preventDefault();
         $form.post(route('register'), {
             onFinish: () => $form.reset('password', 'password_confirmation'),
         });
@@ -27,7 +28,7 @@
 </svelte:head>
 
 <GuestLayout>
-    <form on:submit|preventDefault={onSubmit}>
+    <form onsubmit={onSubmit}>
         <!-- Name -->
         <div>
             <InputLabel for="name" value="Name"/>

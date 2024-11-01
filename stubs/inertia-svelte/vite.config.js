@@ -6,17 +6,15 @@ import { resolve } from 'path';
 export default defineConfig({
     plugins: [
         laravel({
-            input: [
-                'resources/css/app.css',
-                'resources/js/app.js',
-            ],
+            input: 'resources/js/app.js',
             refresh: true,
         }),
-        svelte({})
+        svelte()
     ],
     resolve: {
         alias: {
-            '@': resolve(__dirname, 'resources/js')
+            '@': resolve(__dirname, 'resources/js'),
+            'ziggy-js': resolve(__dirname, 'vendor/tightenco/ziggy'),
         },
         extensions: ['.js', '.svelte', '.json']
     }
