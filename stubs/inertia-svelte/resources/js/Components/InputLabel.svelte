@@ -1,12 +1,10 @@
 <script>
-    export let value;
-    let labelFor;
-    export { labelFor as for };
+    let { value, children, class: className, ...attrs } = $props();
 </script>
-<label for={labelFor} class="block font-medium text-sm text-gray-700">
+<label {...attrs} class="block font-medium text-sm text-gray-700 {className}">
     {#if value}
         <span>{value}</span>
-    {:else}
-        <span><slot /></span>
+    {:else if children}
+        {@render children()}
     {/if}
 </label>

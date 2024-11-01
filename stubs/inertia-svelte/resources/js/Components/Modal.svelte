@@ -1,21 +1,15 @@
 <script>
-    import { onMount, onDestroy } from 'svelte';
+    import { onDestroy } from 'svelte';
 
-    export let show = false;
-    export let maxWidth = '2xl';
-    export let closeable = true;
+    let { children, closeable = true, maxWidth = '2xl', onclose = () => {}, show = false } = $props();
 
-    const emit = new CustomEvent(['close']);
-
-    $: if (show) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'visible';
-    }
+    $effect(() => {
+        document.body.style.overflow = show ? 'hidden' : 'visible';
+    });
 
     const close = () => {
         if (closeable) {
-            dispatchEvent(emit);
+            onclose();
         }
     }
 
@@ -24,8 +18,6 @@
             close();
         }
     }
-
-    onMount(() => document.addEventListener('keydown', closeOnEscape));
 
     onDestroy(() => {
         document.removeEventListener('keydown', closeOnEscape);
@@ -41,14 +33,17 @@
     }[maxWidth]
 </script>
 
+<svelte:window onkeydown={closeOnEscape}/>
+
 {#if show}
 <div class="fixed inset-0 z-50 px-4 py-6 overflow-y-auto sm:px-0">
-    <button class="fixed inset-0 transition-all transform-select-none" onclick={() => close}>
-        <div class="absolute inset-0 bg-gray-500 opacity-75 dark:bg-gray-900"></div>
+    <!-- svelte-ignore a11y_consider_explicit_label -->
+    <button class="fixed inset-0 transition-all transform-select-none" onclick={close()}>
+        <div class="absolute inset-0 bg-gray-500 opacity-75 dark:bg-gray-900">&nbsp;</div>
     </button>
 
-    <div class={`mb-6 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto ${maxWidthClass}`}>
-        <slot />
+    <div class="mb-6 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto {maxWidthClass}">
+        {@render children()}
     </div>
 </div>
 {/if}

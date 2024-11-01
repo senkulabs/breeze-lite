@@ -1,21 +1,21 @@
 <script>
     import GuestLayout from '@/Layouts/Guest.svelte';
-    import AuthSessionStatus from '@/Components/AuthSessionStatus.svelte';
     import InputLabel from '@/Components/InputLabel.svelte';
     import TextInput from '@/Components/TextInput.svelte';
     import InputError from '@/Components/InputError.svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import { useForm } from '@inertiajs/svelte';
 
-    import route from '@/ziggy';
+    import { route } from 'ziggy-js';
 
-    export let status;
+    let { status } = $props();
 
     const form = useForm({
         email: '',
     });
 
-    const onSubmit = () => {
+    function onSubmit(event) {
+        event.preventDefault();
         $form.post(route('password.email'));
     };
 </script>
@@ -30,9 +30,13 @@
     </div>
 
     <!-- Session status -->
-    <AuthSessionStatus class="mb-4" status={status} />
+    {#if status}
+        <div class="mb-4 text-sm font-medium text-green-600 dark:text-green-400">
+            {status}
+        </div>
+    {/if}
 
-    <form on:submit|preventDefault={onSubmit}>
+    <form onsubmit={onSubmit}>
         <!-- Email Address -->
         <div>
             <InputLabel for="email" value="Email"/>
@@ -40,8 +44,8 @@
             <InputError message={$form.errors.email} class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <PrimaryButton processing={$form.processing} class="ms-3" type="submit">Email Password Reset Link</PrimaryButton>
+        <div class="mt-4 flex items-center justify-end">
+            <PrimaryButton class={$form.processing && 'opacity-25'} disabled={$form.processing}>Email Password Reset Link</PrimaryButton>
         </div>
     </form>
 </GuestLayout>

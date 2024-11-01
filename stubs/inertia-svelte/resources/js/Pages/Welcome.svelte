@@ -1,6 +1,6 @@
 <script>
     import { inertia, page } from '@inertiajs/svelte';
-    export let canLogin, canRegister, laravelVersion, phpVersion;
+    let { canLogin, canRegister, laravelVersion, phpVersion } = $props();
 </script>
 
 <svelte:head>

@@ -6,42 +6,36 @@
     import SecondaryButton from "@/Components/SecondaryButton.svelte";
     import TextInput from "@/Components/TextInput.svelte";
     import { useForm } from "@inertiajs/svelte";
-    import { afterUpdate } from "svelte";
-    import route from "@/ziggy";
+    import { route } from 'ziggy-js';
 
-    let className;
-    export { className as class };
-
-    let confirmingUserDeletion = false;
-    let passwordInput = null;
+    let confirmingUserDeletion = $state(false);
+    let passwordInput;
 
     const form = useForm({
         password: "",
     });
 
-    const confirmUserDeletion = () => {
+    function confirmUserDeletion() {
         confirmingUserDeletion = true;
-        // TODO: this doesn't work! Figure out why it doesn't work!
-        afterUpdate(() => passwordInput.focus());
-    };
+        setTimeout(() => passwordInput?.focus(), 250);
+    }
 
-    const deleteUser = () => {
+    function deleteUser() {
         $form.delete(route("profile.destroy"), {
             preserveScroll: true,
             onSuccess: () => closeModal(),
-            onError: () => passwordInput.focus(),
+            onError: () => passwordInput?.focus(),
             onFinish: () => $form.reset(),
         });
     };
 
-    const closeModal = () => {
-        confirmingUserDeletion = false;
-
+    function closeModal() {
         $form.reset();
+        confirmingUserDeletion = false;
     };
 </script>
 
-<section class="space-y-6 {className}">
+<section class="space-y-6">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             Delete Account
@@ -56,11 +50,9 @@
     <DangerButton type="button" onclick={confirmUserDeletion}>Delete Account</DangerButton>
 
     {#if confirmingUserDeletion}
-        <Modal on:close={closeModal} show={confirmUserDeletion}>
+        <Modal onclose={closeModal} show={confirmUserDeletion}>
             <div class="p-6">
-                <h2
-                    class="text-lg font-medium text-gray-900 dark:text-gray-100"
-                >
+                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
                     Are you sure you want to delete your account?
                 </h2>
 
@@ -79,12 +71,12 @@
 
                     <TextInput
                         id="password"
-                        ref="passwordInput"
+                        bind:this={passwordInput}
                         bind:value={$form.password}
                         type="password"
-                        class="mt-1 block w-3/4"
+                        class="mt-1 block w-full"
                         placeholder="Password"
-                        on:keyup={(event) => {
+                        onkeyup={(event) => {
                             if (event.key === "Enter") deleteUser();
                         }}
                     />

@@ -16,6 +16,9 @@ trait InstallsInertiaStacks
      */
     protected function installInertiaSvelteStack()
     {
+        Log::info('Current base path in breeze-lite: '. base_path());
+        Log::info('Current vendor path in breeze-lite: '. base_path('vendor'));
+
         // Install Inertia...
         if (! $this->requireComposerPackages(['inertiajs/inertia-laravel:^1.0', 'laravel/sanctum:^4.0', 'tightenco/ziggy:^2.0'])) {
             return 1;
@@ -43,15 +46,15 @@ trait InstallsInertiaStacks
         }
 
         // Providers...
-        (new Filesystem)->copyDirectory(__DIR__.'/../../vendor/laravel/breeze/stubs/inertia-common/app/Providers', app_path('Providers'));
+        (new Filesystem)->copyDirectory(base_path('vendor/laravel/breeze/stubs/inertia-common/app/Providers'), app_path('Providers'));
 
         // Controllers...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../vendor/laravel/breeze/stubs/inertia-common/app/Http/Controllers', app_path('Http/Controllers'));
+        (new Filesystem)->copyDirectory(base_path('vendor/laravel/breeze/stubs/inertia-common/app/Http/Controllers'), app_path('Http/Controllers'));
 
         // Requests...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Requests'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../vendor/laravel/breeze/stubs/default/app/Http/Requests', app_path('Http/Requests'));
+        (new Filesystem)->copyDirectory(base_path('vendor/laravel/breeze/stubs/default/app/Http/Requests'), app_path('Http/Requests'));
 
         // Middleware...
         $this->installMiddleware([
@@ -60,7 +63,7 @@ trait InstallsInertiaStacks
         ]);
 
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Middleware'));
-        copy(__DIR__.'/../../vendor/laravel/breeze/stubs/inertia-common/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
+        copy(base_path('vendor/laravel/breeze/stubs/inertia-common/app/Http/Middleware/HandleInertiaRequests.php'), app_path('Http/Middleware/HandleInertiaRequests.php'));
 
         // Views...
         copy(__DIR__.'/../../stubs/inertia-svelte/resources/views/app.blade.php', resource_path('views/app.blade.php'));
@@ -90,25 +93,25 @@ trait InstallsInertiaStacks
         }
 
         if ($this->option('pest')) {
-            (new Filesystem)->copyDirectory(__DIR__.'/../../vendor/laravel/breeze/stubs/inertia-common/pest-tests/Feature', base_path('tests/Feature'));
+            (new Filesystem)->copyDirectory(base_path('vendor/laravel/breeze/stubs/inertia-common/pest-tests/Feature'), base_path('tests/Feature'));
         } else {
-            (new Filesystem)->copyDirectory(__DIR__.'/../../vendor/laravel/breeze/stubs/inertia-common/tests/Feature', base_path('tests/Feature'));
+            (new Filesystem)->copyDirectory(base_path('vendor/laravel/breeze/stubs/inertia-common/tests/Feature'), base_path('tests/Feature'));
         }
 
         // Routes...
-        copy(__DIR__.'/../../vendor/laravel/breeze/stubs/inertia-common/routes/web.php', base_path('routes/web.php'));
-        copy(__DIR__.'/../../vendor/laravel/breeze/stubs/inertia-common/routes/auth.php', base_path('routes/auth.php'));
+        copy(base_path('vendor/laravel/breeze/stubs/inertia-common/routes/web.php'), base_path('routes/web.php'));
+        copy(base_path('vendor/laravel/breeze/stubs/inertia-common/routes/auth.php'), base_path('routes/auth.php'));
 
         // Tailwind / Vite...
-        copy(__DIR__.'/../../vendor/laravel/breeze/stubs/default/resources/css/app.css', resource_path('css/app.css'));
-        copy(__DIR__.'/../../vendor/laravel/breeze/stubs/default/postcss.config.js', base_path('postcss.config.js'));
-        copy(__DIR__.'/../../vendor/laravel/breeze/stubs/inertia-common/tailwind.config.js', base_path('tailwind.config.js'));
+        copy(base_path('vendor/laravel/breeze/stubs/default/resources/css/app.css'), resource_path('css/app.css'));
+        copy(base_path('vendor/laravel/breeze/stubs/default/postcss.config.js'), base_path('postcss.config.js'));
+        copy(base_path('vendor/laravel/breeze/stubs/inertia-common/tailwind.config.js'), base_path('tailwind.config.js'));
         copy(__DIR__.'/../../stubs/inertia-svelte/vite.config.js', base_path('vite.config.js'));
 
         if ($this->option('typescript')) {
             // TODO: I'm not familiar with typescript. So, wait and see.
         } else {
-            copy(__DIR__.'/../../vendor/laravel/breeze/stubs/inertia-common/jsconfig.json', base_path('jsconfig.json'));
+            copy(base_path('vendor/laravel/breeze/stubs/inertia-common/jsconfig.json'), base_path('jsconfig.json'));
             copy(__DIR__.'/../../stubs/inertia-svelte/resources/js/app.js', resource_path('js/app.js'));
         }
 

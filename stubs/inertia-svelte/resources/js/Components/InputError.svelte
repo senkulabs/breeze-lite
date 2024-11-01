@@ -1,9 +1,9 @@
 <script>
-    export let message;
-    let className;
-    export { className as class };
+    let { message, ...attrs } = $props();
 </script>
 
 {#if message}
-    <span class="text-sm text-red-600 space-y-1 {className}">{ message }</span>
+    <div {...attrs}>
+        <p class="text-sm text-red-600 dark:text-red-400">{ message }</p>
+    </div>
 {/if}

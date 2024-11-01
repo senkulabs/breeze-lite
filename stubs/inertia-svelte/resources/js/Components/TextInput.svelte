@@ -1,18 +1,21 @@
 <script>
-    export let value, name, id, autocomplete, required;
-    export let type = 'text';
-    let className, input;
+    import { onMount } from "svelte";
+    let { class: className, value = $bindable(), ...attrs } = $props();
 
-    export const focus = () => input.focus();
-    export const select = () => input.select();
+    let input;
 
-    export { className as class };
-    
-    export const update = (event) => {
-        value = event.target.value;
-    };
+    export function focus() {
+        input?.focus();
+    }
+
+    onMount(() => {
+        if (attrs.autofocus && input) {
+            input.focus();
+        }
+    });
 </script>
+
 <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm {className}"
-{type} {name} {id} {value} {autocomplete} {required}
-bind:this={input}
-oninput={update}>
+{...attrs}
+bind:value
+bind:this={input}>
