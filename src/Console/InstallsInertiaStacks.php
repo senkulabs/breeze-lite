@@ -3,6 +3,7 @@
 namespace SenkuLabs\Breeze\Console;
 
 use Illuminate\Filesystem\Filesystem;
+use Symfony\Component\Process\Process;
 use Laravel\Breeze\Console\InstallsInertiaStacks as LaravelBreezeInstallsInertiaStacks;
 
 trait InstallsInertiaStacks
@@ -16,9 +17,6 @@ trait InstallsInertiaStacks
      */
     protected function installInertiaSvelteStack()
     {
-        Log::info('Current base path in breeze-lite: '. base_path());
-        Log::info('Current vendor path in breeze-lite: '. base_path('vendor'));
-
         // Install Inertia...
         if (! $this->requireComposerPackages(['inertiajs/inertia-laravel:^1.0', 'laravel/sanctum:^4.0', 'tightenco/ziggy:^2.0'])) {
             return 1;
@@ -34,15 +32,63 @@ trait InstallsInertiaStacks
                 'postcss' => '^8.4.33',
                 'tailwindcss' => '^3.4.10',
                 'svelte' => '^5.0',
+                'svelte-check' => '^3.6.3',
+                'svelte-portal' => '^2.2.1',
+                'svelte-preprocess' => '^5.1.3',
+                'svelte-transition' => '^0.0.17',
+                'vite-plugin-run' => '^0.6.0',
             ] + $packages;
         });
 
         if ($this->option('typescript')) {
-            // TODO: I'm not familiar with TypeScript. Wait and see.
+            $this->updateNodePackages(function ($packages) {
+                return [
+                    'typescript' => '^5.5',
+                    '@tsconfig/svelte' => '^5.0.2',
+                ] + $packages;
+            });
         }
 
         if ($this->option('eslint')) {
-            // TODO: I'm not familiar with eslint. Wait and see.
+            $this->updateNodePackages(function ($packages) {
+                return [
+                    'eslint' => '^8.57.0',
+                    'eslint-plugin-svelte' => '^2.35.1',
+                    'eslint-config-prettier' => '^9.1.0',
+                    'prettier' => '^3.3.3',
+                    'prettier-plugin-organize-imports' => '^4.0.0',
+                    'prettier-plugin-tailwindcss' => '^0.6.5',
+                    'prettier-plugin-svelte' => '^3.2.7',
+                ] + $packages;
+            });
+
+            if ($this->option('typescript')) {
+                $this->updateNodePackages(function ($packages) {
+                    return [
+                        '@types/eslint' => '^8.56.2',
+                        '@typescript-eslint/eslint-plugin' => '^6.19.1',
+                        '@typescript-eslint/parser' => '^6.19.1',
+                    ] + $packages;
+                });
+
+                $this->updateNodeScripts(function ($scripts) {
+                    return $scripts + [
+                        // 'lint' => 'eslint resources/js --ext .js,.ts,.vue --ignore-path .gitignore --fix',
+                    ];
+                });
+
+                // copy(__DIR__.'/../../stubs/inertia-vue-ts/.eslintrc.cjs', base_path('.eslintrc.cjs'));
+            } else {
+                // $this->updateNodeScripts(function ($scripts) {
+                //     return $scripts + [
+                //         'lint' => 'eslint resources/js --ext .js,.vue --ignore-path .gitignore --fix',
+                //     ];
+                // });
+
+                // copy(__DIR__.'/../../stubs/inertia-vue/.eslintrc.cjs', base_path('.eslintrc.cjs'));
+            }
+
+            copy(base_path('vendor/laravel/breeze/stubs/inertia-common/.prettierrc'), base_path('.prettierrc'));
         }
 
         // Providers...
@@ -76,7 +122,10 @@ trait InstallsInertiaStacks
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages'));
 
         if ($this->option('typescript')) {
-            // TODO: I'm not familiar with typescript. So, wait and see.
+            (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-svelte-ts/resources/js/Components', resource_path('js/Components'));
+            (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-svelte-ts/resources/js/Layouts', resource_path('js/Layouts'));
+            (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-svelte-ts/resources/js/Pages', resource_path('js/Pages'));
+            (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-svelte-ts/resources/js/types', resource_path('js/types'));
         } else {
             (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-svelte/resources/js/Components', resource_path('js/Components'));
             (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-svelte/resources/js/Layouts', resource_path('js/Layouts'));
@@ -109,14 +158,31 @@ trait InstallsInertiaStacks
         copy(__DIR__.'/../../stubs/inertia-svelte/vite.config.js', base_path('vite.config.js'));
 
         if ($this->option('typescript')) {
-            // TODO: I'm not familiar with typescript. So, wait and see.
+            copy(__DIR__.'/../../stubs/inertia-svelte-ts/tsconfig.json', base_path('tsconfig.json'));
+            copy(__DIR__.'/../../stubs/inertia-svelte-ts/resources/js/app.ts', resource_path('js/app.ts'));
+
+            if (file_exists(resource_path('js/app.js'))) {
+                unlink(resource_path('js/app.js'));
+            }
+
+            if (file_exists(resource_path('js/bootstrap.js'))) {
+                rename(resource_path('js/bootstrap.js'), resource_path('js/bootstrap.ts'));
+            }
+
+            $this->replaceInFile('.js', '.ts', base_path('vite.config.js'));
+            $this->replaceInFile('.js', '.ts', resource_path('views/app.blade.php'));
+            $this->replaceInFile('.vue', '.svelte', base_path('tailwind.config.js'));
+
+            $this->replaceInFile('"vite build', '"tsc && vite build', base_path('package.json'));
         } else {
             copy(base_path('vendor/laravel/breeze/stubs/inertia-common/jsconfig.json'), base_path('jsconfig.json'));
             copy(__DIR__.'/../../stubs/inertia-svelte/resources/js/app.js', resource_path('js/app.js'));
+
+            $this->replaceInFile('.vue', '.svelte', base_path('tailwind.config.js'));
         }
 
         if ($this->option('ssr')) {
-            // TODO: I'm not familiar with ssr. So, wait and see.
+            $this->installInertiaSvelteSsrStack();
         }
 
         $this->components->info('Installing and building Node dependencies.');
@@ -133,5 +199,21 @@ trait InstallsInertiaStacks
 
         $this->line('');
         $this->components->info('Breeze Lite scaffolding installed successfully.');
+    }
+
+    protected function installInertiaSvelteSsrStack()
+    {   
+        if ($this->option('typescript')) {
+            copy(__DIR__.'/../../stubs/inertia-svelte-ts/resources/js/ssr.ts', resource_path('js/ssr.ts'));
+            $this->replaceInFile("input: 'resources/js/app.ts',", "input: 'resources/js/app.ts',".PHP_EOL."            ssr: 'resources/js/ssr.ts',", base_path('vite.config.js'));
+        } else {
+            copy(__DIR__.'/../../stubs/inertia-svelte/resources/js/ssr.js', resource_path('js/ssr.js'));
+            $this->replaceInFile("input: 'resources/js/app.js',", "input: 'resources/js/app.js',".PHP_EOL."            ssr: 'resources/js/ssr.js',", base_path('vite.config.js'));
+        }
+
+        $this->configureZiggyForSsr();
+
+        $this->replaceInFile('vite build', 'vite build && vite build --ssr', base_path('package.json'));
+        $this->replaceInFile('/node_modules', '/bootstrap/ssr'.PHP_EOL.'/node_modules', base_path('.gitignore'));
     }
 }

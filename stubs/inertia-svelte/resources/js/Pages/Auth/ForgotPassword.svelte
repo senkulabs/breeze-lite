@@ -1,5 +1,5 @@
 <script>
-    import GuestLayout from '@/Layouts/Guest.svelte';
+    import GuestLayout from '@/Layouts/GuestLayout.svelte';
     import InputLabel from '@/Components/InputLabel.svelte';
     import TextInput from '@/Components/TextInput.svelte';
     import InputError from '@/Components/InputError.svelte';

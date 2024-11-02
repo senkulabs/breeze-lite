@@ -3,6 +3,8 @@
 namespace SenkuLabs\Breeze\Console;
 
 use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 use Laravel\Breeze\Console\InstallCommand as LaravelBreezeInstallCommand;
 use Laravel\Breeze\Console\InstallsApiStack;
@@ -10,6 +12,8 @@ use Laravel\Breeze\Console\InstallsBladeStack;
 use Laravel\Breeze\Console\InstallsLivewireStack;
 
 use function Laravel\Prompts\select;
+use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\multiselect;
 
 #[AsCommand(name: 'breeze:install')]
 class InstallCommand extends LaravelBreezeInstallCommand
@@ -66,5 +70,39 @@ class InstallCommand extends LaravelBreezeInstallCommand
                 scroll: 5,
             ),
         ];
+    }
+
+    /**
+     * Interact further with the user if they were prompted for missing arguments.
+     *
+     * @return void
+     */
+    protected function afterPromptingForMissingArguments(InputInterface $input, OutputInterface $output)
+    {
+        $stack = $input->getArgument('stack');
+
+        if (in_array($stack, ['react', 'svelte', 'vue'])) {
+            collect(multiselect(
+                label: 'Would you like any optional features?',
+                options: [
+                    'dark' => 'Dark mode',
+                    'ssr' => 'Inertia SSR',
+                    'typescript' => 'TypeScript',
+                    'eslint' => 'ESLint with Prettier',
+                ],
+                hint: 'Use the space bar to select options.'
+            ))->each(fn ($option) => $input->setOption($option, true));
+        } elseif (in_array($stack, ['blade', 'livewire', 'livewire-functional'])) {
+            $input->setOption('dark', confirm(
+                label: 'Would you like dark mode support?',
+                default: false
+            ));
+        }
+
+        $input->setOption('pest', select(
+            label: 'Which testing framework do you prefer?',
+            options: ['Pest', 'PHPUnit'],
+            default: 'Pest',
+        ) === 'Pest');
     }
 }
