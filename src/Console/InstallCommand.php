@@ -21,6 +21,19 @@ class InstallCommand extends LaravelBreezeInstallCommand
     use InstallsApiStack, InstallsBladeStack, InstallsInertiaStacks, InstallsLivewireStack;
 
     /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'breeze:install {stack : The development stack that should be installed (blade,livewire,livewire-functional,react,svelte,vue,api)}
+                            {--dark : Indicate that dark mode support should be installed}
+                            {--pest : Indicate that Pest should be installed}
+                            {--ssr : Indicates if Inertia SSR support should be installed}
+                            {--typescript : Indicates if TypeScript is preferred for the Inertia stack}
+                            {--eslint : Indicates if ESLint with Prettier should be installed}
+                            {--composer=global : Absolute path to the Composer binary which should be used to install packages}';
+
+    /**
      * Execute the console command.
      *
      * @return int|null
