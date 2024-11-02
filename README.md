@@ -1,6 +1,6 @@
 # Breeze Lite
 
-Unofficial Laravel Breeze for Laravel + Inertia + Svelte.
+Unofficial Laravel Breeze for Laravel + Inertia + Svelte until Laravel Breeze release the official for Inertia + Svelte.
 
 > Lite = Laravel + Inertia + Svelte. I like it!
 
@@ -14,4 +14,4 @@ php artisan breeze:install
 
 ## Courtesy
 
-This project use Svelte 5 and Inertia version 2 (currently beta). The Svelte components come from [pedroborges/laravel-breeze-svelte](https://github.com/pedroborges/laravel-breeze-svelte). Currently, I use `js` version NOT the `ts` version.
+This project use Svelte 5 and Inertia version 2 (currently beta). The Svelte components come from [pedroborges/laravel-breeze-svelte](https://github.com/pedroborges/laravel-breeze-svelte).
