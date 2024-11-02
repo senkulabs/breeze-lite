@@ -163,9 +163,12 @@ We can then create our front-end `Chirps/Index` page component with a form for c
     import InputError from "@/Components/InputError.svelte"
     import PrimaryButton from "@/Components/PrimaryButton.svelte"
     import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.svelte";
-    import Chirp from "@/Components/Chirp.svelte";
     import { page, useForm } from "@inertiajs/svelte";
     import { route } from 'ziggy-js';
+
+    const form = useForm({
+        message: ''
+    });
     
     function submit(e) {
         e.preventDefault();
@@ -175,10 +178,6 @@ We can then create our front-end `Chirps/Index` page component with a form for c
             }
         });
     }
-
-    const form = useForm({
-        message: ''
-    });
 
     const chirps = $page.props.chirps;
 </script>

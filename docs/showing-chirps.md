@@ -99,6 +99,10 @@ Finally, we will update our `Chirps/Index` page component to accept the `chirps`
     import Chirp from "@/Components/Chirp.svelte"; // [!code ++]
     import { page, useForm } from "@inertiajs/svelte";
     import { route } from 'ziggy-js';
+
+    const form = useForm({
+        message: ''
+    });
     
     function submit(e: SubmitEvent) {
         e.preventDefault();
@@ -109,10 +113,6 @@ Finally, we will update our `Chirps/Index` page component to accept the `chirps`
         });
     }
 
-    const form = useForm({
-        message: ''
-    });
-
     const chirps = $page.props.chirps;
 </script>
 
@@ -121,8 +121,6 @@ Finally, we will update our `Chirps/Index` page component to accept the `chirps`
 </svelte:head>
 
 <AuthenticatedLayout>
-
-
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
         <form onsubmit={submit}>
             <textarea required bind:value={$form.message} class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
