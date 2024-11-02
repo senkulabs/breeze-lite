@@ -1,10 +1,12 @@
 # Breeze Lite
 
-Unofficial Laravel Breeze for Laravel + Inertia + Svelte until Laravel Breeze release the official for Inertia + Svelte.
+Unofficial Laravel Breeze for Laravel + Inertia + Svelte before Laravel Breeze ship the official for Inertia + Svelte. Until then, enjoy!
 
 > Lite = Laravel + Inertia + Svelte. I like it!
 
 ## How to use?
+
+This project build on top Laravel Breeze, so you can still access the build in template provided by Laravel Breeze like Blade, Livewire, Vue, React, and API. The additional template is Svelte 5. 
 
 ```
 composer require senkulabs/breeze-lite --dev
