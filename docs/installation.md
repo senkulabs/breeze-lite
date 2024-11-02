@@ -22,7 +22,7 @@ cd chirper
 php artisan serve
 ```
 
-Once you have started the Artisan development server, your application will be accessible in your web browser at http://localhost:8000.
+Once you have started the Artisan development server, your application will be accessible in your web browser at `http://localhost:8000`.
 
 ## Installing Breeze Lite
 

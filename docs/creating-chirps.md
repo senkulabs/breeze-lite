@@ -120,7 +120,7 @@ class ChirpController extends Controller
 ```
 :::
 
-If you are still logged in from earlier, you should see your message when navigating to http://localhost:8000/chirps!
+If you are still logged in from earlier, you should see your message when navigating to `http://localhost:8000/chirps!`
 
 ## Inertia
 
