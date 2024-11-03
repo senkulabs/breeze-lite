@@ -30,4 +30,4 @@ But, `eslint with prettier` option works well.
 
 ## Courtesy
 
-This project use Svelte 5 and Inertia version 2 (currently beta). The Svelte components come from [pedroborges/laravel-breeze-svelte](https://github.com/pedroborges/laravel-breeze-svelte).
+This project use Svelte 5 and Inertia. The Svelte components come from [pedroborges/laravel-breeze-svelte](https://github.com/pedroborges/laravel-breeze-svelte).

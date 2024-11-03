@@ -25,7 +25,7 @@ trait InstallsInertiaStacks
         // NPM Packages...
         $this->updateNodePackages(function ($packages) {
             return [
-                '@inertiajs/svelte' => '^2.0.0-beta.2',
+                '@inertiajs/svelte' => '^1.3.0-beta.2',
                 '@tailwindcss/forms' => '^0.5.7',
                 '@sveltejs/vite-plugin-svelte' => '^4.0.0',
                 'autoprefixer' => '^10.4.20',
