@@ -5,7 +5,6 @@
     import TextInput from '@/Components/TextInput.svelte';
     import InputError from '@/Components/InputError.svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
-    import { route } from 'ziggy-js';
 
     const form = useForm({
         name: '',

@@ -5,7 +5,6 @@
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
     import Transition from 'svelte-transition';
-    import { route } from 'ziggy-js';
 
     let {
         mustVerifyEmail,

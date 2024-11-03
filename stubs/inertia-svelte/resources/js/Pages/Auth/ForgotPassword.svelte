@@ -6,8 +6,6 @@
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import { useForm } from '@inertiajs/svelte';
 
-    import { route } from 'ziggy-js';
-
     let { status } = $props();
 
     const form = useForm({

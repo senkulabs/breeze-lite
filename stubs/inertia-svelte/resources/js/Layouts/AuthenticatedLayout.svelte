@@ -5,7 +5,6 @@
     import NavLink from '@/Components/NavLink.svelte';
     import ResponsiveNavLink from '@/Components/ResponsiveNavLink.svelte';
     import { inertia, page } from '@inertiajs/svelte';
-    import { route } from 'ziggy-js';
 
     let { children, header } = $props();
 

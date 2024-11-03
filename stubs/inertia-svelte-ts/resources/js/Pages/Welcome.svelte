@@ -1,6 +1,6 @@
 <script lang="ts">
     import { inertia, page } from '@inertiajs/svelte';
-    import { route } from 'ziggy-js';
+    
 
     interface PageProps {
         canLogin?: boolean

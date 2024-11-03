@@ -6,7 +6,6 @@
     import Checkbox from '@/Components/Checkbox.svelte';
     import { inertia, useForm } from '@inertiajs/svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
-    import { route } from 'ziggy-js';
 
     let {
         canResetPassword,

@@ -6,7 +6,6 @@
     import Modal from '@/Components/Modal.svelte';
     import SecondaryButton from '@/Components/SecondaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
-    import { route } from 'ziggy-js';
 
     let confirmingUserDeletion = $state(false);
     let passwordInput: TextInput;

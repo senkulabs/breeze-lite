@@ -4,7 +4,7 @@
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
     import { useForm } from '@inertiajs/svelte';
-    import { route } from 'ziggy-js';
+    
 
     let passwordInput;
     let currentPasswordInput;
