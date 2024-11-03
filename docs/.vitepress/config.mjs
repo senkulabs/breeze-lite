@@ -12,7 +12,7 @@ export default defineConfig({
 
     sidebar: [
       { text: 'Home', link: '/' },
-      { text: 'Installation', link: '/installation' },
+      { text: 'Build Chirper', link: '/build-chirper' },
       { text: 'Creating Chirps', link: '/creating-chirps' },
       { text: 'Showing Chirps', link: '/showing-chirps' },
       { text: 'Editing Chirps', link: '/editing-chirps' },
