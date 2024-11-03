@@ -172,8 +172,6 @@ trait InstallsInertiaStacks
             $this->replaceInFile('.js', '.ts', base_path('vite.config.js'));
             $this->replaceInFile('.js', '.ts', resource_path('views/app.blade.php'));
             $this->replaceInFile('.vue', '.svelte', base_path('tailwind.config.js'));
-
-            $this->replaceInFile('"vite build', '"tsc && vite build', base_path('package.json'));
         } else {
             copy(base_path('vendor/laravel/breeze/stubs/inertia-common/jsconfig.json'), base_path('jsconfig.json'));
             copy(__DIR__.'/../../stubs/inertia-svelte/resources/js/app.js', resource_path('js/app.js'));
