@@ -16,8 +16,9 @@
     })
 
     function closeModal() {
-        confirmingUserDeletion = false
+        $form.clearErrors()
         $form.reset()
+        confirmingUserDeletion = false
     }
 
     function confirmUserDeletion() {

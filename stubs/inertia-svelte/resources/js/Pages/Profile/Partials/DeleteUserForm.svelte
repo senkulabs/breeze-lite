@@ -9,6 +9,9 @@
     import { route } from 'ziggy-js';
 
     let confirmingUserDeletion = $state(false);
+
+    // svelte-ignore non_reactive_update
+    /** @type {HTMLInputElement} */
     let passwordInput;
 
     const form = useForm({
@@ -30,6 +33,7 @@
     };
 
     function closeModal() {
+        $form.clearErrors();
         $form.reset();
         confirmingUserDeletion = false;
     };
