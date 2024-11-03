@@ -93,8 +93,8 @@ Finally, we will update our `Chirps/Index` page component to accept the `chirps`
 ::: code-group
 ```svelte [resources/js/Pages/Chirps/Index.svelte]
 <script>
-    import InputError from "@/Components/InputError.svelte"
-    import PrimaryButton from "@/Components/PrimaryButton.svelte"
+    import InputError from "@/Components/InputError.svelte";
+    import PrimaryButton from "@/Components/PrimaryButton.svelte";
     import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.svelte";
     import Chirp from "@/Components/Chirp.svelte"; // [!code ++]
     import { page, useForm } from "@inertiajs/svelte";
@@ -104,7 +104,7 @@ Finally, we will update our `Chirps/Index` page component to accept the `chirps`
         message: ''
     });
     
-    function submit(e: SubmitEvent) {
+    function submit(e) {
         e.preventDefault();
         $form.post(route('chirps.store'), {
             onFinish: () => {

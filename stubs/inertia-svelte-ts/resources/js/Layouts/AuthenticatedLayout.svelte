@@ -1,16 +1,16 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte'
-    import { inertia, page } from '@inertiajs/svelte'
-    import { route } from 'ziggy-js'
-    import ApplicationLogo from '@/Components/ApplicationLogo.svelte'
-    import Dropdown from '@/Components/Dropdown.svelte'
-    import DropdownLink from '@/Components/DropdownLink.svelte'
-    import NavLink from '@/Components/NavLink.svelte'
-    import ResponsiveNavLink from '@/Components/ResponsiveNavLink.svelte'
+    import type { Snippet } from 'svelte';
+    import { inertia, page } from '@inertiajs/svelte';
+    import { route } from 'ziggy-js';
+    import ApplicationLogo from '@/Components/ApplicationLogo.svelte';
+    import Dropdown from '@/Components/Dropdown.svelte';
+    import DropdownLink from '@/Components/DropdownLink.svelte';
+    import NavLink from '@/Components/NavLink.svelte';
+    import ResponsiveNavLink from '@/Components/ResponsiveNavLink.svelte';
 
     let { children, header }: { children: Snippet; header: Snippet } = $props()
 
-    let showingNavigationDropdown = $state(false)
+    let showingNavigationDropdown = $state(false);
 </script>
 
 <div>

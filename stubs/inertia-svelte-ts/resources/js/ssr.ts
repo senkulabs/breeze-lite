@@ -1,6 +1,6 @@
-import { createInertiaApp, type ResolvedComponent } from '@inertiajs/svelte'
-import createServer from '@inertiajs/svelte/server'
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
+import { createInertiaApp, type ResolvedComponent } from '@inertiajs/svelte';
+import createServer from '@inertiajs/svelte/server';
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 createServer((page) =>
     createInertiaApp({

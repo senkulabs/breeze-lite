@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte'
-    import { onDestroy } from 'svelte'
-    import Portal from 'svelte-portal'
-    import Transition from 'svelte-transition'
+    import type { Snippet } from 'svelte';
+    import { onDestroy } from 'svelte';
+    import Portal from 'svelte-portal';
+    import Transition from 'svelte-transition';
 
     let {
         children,

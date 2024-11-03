@@ -1,8 +1,8 @@
 <script lang="ts">
-    import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.svelte'
-    import DeleteUserForm from './Partials/DeleteUserForm.svelte'
-    import UpdatePasswordForm from './Partials/UpdatePasswordForm.svelte'
-    import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.svelte'
+    import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.svelte';
+    import DeleteUserForm from './Partials/DeleteUserForm.svelte';
+    import UpdatePasswordForm from './Partials/UpdatePasswordForm.svelte';
+    import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.svelte';
 
     let {
         mustVerifyEmail,

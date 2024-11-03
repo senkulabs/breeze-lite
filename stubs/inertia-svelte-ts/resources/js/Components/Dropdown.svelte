@@ -1,6 +1,6 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte'
-    import Transition from 'svelte-transition'
+    import type { Snippet } from 'svelte';
+    import Transition from 'svelte-transition';
 
     let {
         align = 'right',
@@ -16,8 +16,8 @@
         width?: '48'
     } = $props()
 
-    let open = $state(false)
-    let widthClass = $derived({ '48': 'w-48' }[width])
+    let open = $state(false);
+    let widthClass = $derived({ '48': 'w-48' }[width]);
     let alignmentClasses = $derived(
         align === 'left'
             ? 'ltr:origin-top-left rtl:origin-top-right start-0'

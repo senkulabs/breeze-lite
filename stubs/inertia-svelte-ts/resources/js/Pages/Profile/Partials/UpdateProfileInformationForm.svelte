@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { inertia, page, useForm } from '@inertiajs/svelte'
-    import InputError from '@/Components/InputError.svelte'
-    import InputLabel from '@/Components/InputLabel.svelte'
-    import PrimaryButton from '@/Components/PrimaryButton.svelte'
-    import TextInput from '@/Components/TextInput.svelte'
-    import Transition from 'svelte-transition'
-    import { route } from 'ziggy-js'
+    import { inertia, page, useForm } from '@inertiajs/svelte';
+    import InputError from '@/Components/InputError.svelte';
+    import InputLabel from '@/Components/InputLabel.svelte';
+    import PrimaryButton from '@/Components/PrimaryButton.svelte';
+    import TextInput from '@/Components/TextInput.svelte';
+    import Transition from 'svelte-transition';
+    import { route } from 'ziggy-js';
 
     let {
         mustVerifyEmail,

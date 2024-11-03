@@ -1,11 +1,11 @@
 <script lang="ts">
-    import GuestLayout from '@/Layouts/GuestLayout.svelte'
-    import InputError from '@/Components/InputError.svelte'
-    import InputLabel from '@/Components/InputLabel.svelte'
-    import PrimaryButton from '@/Components/PrimaryButton.svelte'
-    import TextInput from '@/Components/TextInput.svelte'
-    import { inertia, useForm } from '@inertiajs/svelte'
-    import { route } from 'ziggy-js'
+    import GuestLayout from '@/Layouts/GuestLayout.svelte';
+    import InputError from '@/Components/InputError.svelte';
+    import InputLabel from '@/Components/InputLabel.svelte';
+    import PrimaryButton from '@/Components/PrimaryButton.svelte';
+    import TextInput from '@/Components/TextInput.svelte';
+    import { inertia, useForm } from '@inertiajs/svelte';
+    import { route } from 'ziggy-js';
 
     const form = useForm({
         name: '',

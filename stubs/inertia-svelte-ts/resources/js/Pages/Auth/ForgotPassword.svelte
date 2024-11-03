@@ -1,13 +1,13 @@
 <script lang="ts">
-    import GuestLayout from '@/Layouts/GuestLayout.svelte'
-    import InputError from '@/Components/InputError.svelte'
-    import InputLabel from '@/Components/InputLabel.svelte'
-    import PrimaryButton from '@/Components/PrimaryButton.svelte'
-    import TextInput from '@/Components/TextInput.svelte'
-    import { route } from 'ziggy-js'
-    import { useForm } from '@inertiajs/svelte'
+    import GuestLayout from '@/Layouts/GuestLayout.svelte';
+    import InputError from '@/Components/InputError.svelte';
+    import InputLabel from '@/Components/InputLabel.svelte';
+    import PrimaryButton from '@/Components/PrimaryButton.svelte';
+    import TextInput from '@/Components/TextInput.svelte';
+    import { route } from 'ziggy-js';
+    import { useForm } from '@inertiajs/svelte';
 
-    let { status }: { status?: string } = $props()
+    let { status }: { status?: string } = $props();
 
     const form = useForm({
         email: '',

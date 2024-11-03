@@ -1,14 +1,14 @@
 <script lang="ts">
-    import { useForm } from '@inertiajs/svelte'
-    import InputError from '@/Components/InputError.svelte'
-    import InputLabel from '@/Components/InputLabel.svelte'
-    import PrimaryButton from '@/Components/PrimaryButton.svelte'
-    import TextInput from '@/Components/TextInput.svelte'
-    import Transition from 'svelte-transition'
-    import { route } from 'ziggy-js'
+    import { useForm } from '@inertiajs/svelte';
+    import InputError from '@/Components/InputError.svelte';
+    import InputLabel from '@/Components/InputLabel.svelte';
+    import PrimaryButton from '@/Components/PrimaryButton.svelte';
+    import TextInput from '@/Components/TextInput.svelte';
+    import Transition from 'svelte-transition';
+    import { route } from 'ziggy-js';
 
-    let passwordInput: TextInput
-    let currentPasswordInput: TextInput
+    let passwordInput: TextInput;
+    let currentPasswordInput: TextInput;
 
     const form = useForm({
         current_password: '',

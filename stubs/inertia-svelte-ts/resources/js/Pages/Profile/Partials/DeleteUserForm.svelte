@@ -1,15 +1,15 @@
 <script lang="ts">
-    import { useForm } from '@inertiajs/svelte'
-    import DangerButton from '@/Components/DangerButton.svelte'
-    import InputError from '@/Components/InputError.svelte'
-    import InputLabel from '@/Components/InputLabel.svelte'
-    import Modal from '@/Components/Modal.svelte'
-    import SecondaryButton from '@/Components/SecondaryButton.svelte'
-    import TextInput from '@/Components/TextInput.svelte'
-    import { route } from 'ziggy-js'
+    import { useForm } from '@inertiajs/svelte';
+    import DangerButton from '@/Components/DangerButton.svelte';
+    import InputError from '@/Components/InputError.svelte';
+    import InputLabel from '@/Components/InputLabel.svelte';
+    import Modal from '@/Components/Modal.svelte';
+    import SecondaryButton from '@/Components/SecondaryButton.svelte';
+    import TextInput from '@/Components/TextInput.svelte';
+    import { route } from 'ziggy-js';
 
-    let confirmingUserDeletion = $state(false)
-    let passwordInput: TextInput
+    let confirmingUserDeletion = $state(false);
+    let passwordInput: TextInput;
 
     const form = useForm({
         password: '',

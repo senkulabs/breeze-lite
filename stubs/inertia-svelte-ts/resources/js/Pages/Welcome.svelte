@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { inertia, page } from '@inertiajs/svelte'
-    import { route } from 'ziggy-js'
+    import { inertia, page } from '@inertiajs/svelte';
+    import { route } from 'ziggy-js';
 
     interface PageProps {
         canLogin?: boolean
@@ -9,7 +9,7 @@
         phpVersion: string
     }
 
-    let { canLogin, canRegister, laravelVersion, phpVersion }: PageProps = $props()
+    let { canLogin, canRegister, laravelVersion, phpVersion }: PageProps = $props();
 
     function handleImageError() {
         document.getElementById('screenshot-container')?.classList.add('!hidden')

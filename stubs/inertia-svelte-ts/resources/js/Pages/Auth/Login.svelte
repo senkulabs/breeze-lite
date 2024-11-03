@@ -1,12 +1,12 @@
 <script lang="ts">
-    import Checkbox from '@/Components/Checkbox.svelte'
-    import GuestLayout from '@/Layouts/GuestLayout.svelte'
-    import InputError from '@/Components/InputError.svelte'
-    import InputLabel from '@/Components/InputLabel.svelte'
-    import PrimaryButton from '@/Components/PrimaryButton.svelte'
-    import TextInput from '@/Components/TextInput.svelte'
-    import { inertia, useForm } from '@inertiajs/svelte'
-    import { route } from 'ziggy-js'
+    import Checkbox from '@/Components/Checkbox.svelte';
+    import GuestLayout from '@/Layouts/GuestLayout.svelte';
+    import InputError from '@/Components/InputError.svelte';
+    import InputLabel from '@/Components/InputLabel.svelte';
+    import PrimaryButton from '@/Components/PrimaryButton.svelte';
+    import TextInput from '@/Components/TextInput.svelte';
+    import { inertia, useForm } from '@inertiajs/svelte';
+    import { route } from 'ziggy-js';
 
     let {
         canResetPassword,

@@ -1,6 +1,6 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte'
-    import { Link } from '@inertiajs/svelte'
+    import type { Snippet } from 'svelte';
+    import { Link } from '@inertiajs/svelte';
 
     let {
         active = false,
