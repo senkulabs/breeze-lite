@@ -22,5 +22,8 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/senkulabs/breeze-lite' }
     ]
-  }
+  },
+  // deployment
+  base: '/',
+  cleanUrls: true,
 })
