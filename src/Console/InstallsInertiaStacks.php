@@ -3,7 +3,6 @@
 namespace SenkuLabs\Breeze\Console;
 
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Process\Process;
 use Laravel\Breeze\Console\InstallsInertiaStacks as LaravelBreezeInstallsInertiaStacks;
 
 trait InstallsInertiaStacks
@@ -25,7 +24,7 @@ trait InstallsInertiaStacks
         // NPM Packages...
         $this->updateNodePackages(function ($packages) {
             return [
-                '@inertiajs/svelte' => '^1.3.0-beta.2',
+                '@inertiajs/svelte' => '^2.0.0-beta.2',
                 '@tailwindcss/forms' => '^0.5.7',
                 '@sveltejs/vite-plugin-svelte' => '^4.0.0',
                 'autoprefixer' => '^10.4.20',
