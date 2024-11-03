@@ -1,10 +1,10 @@
 ---
-title: Installation
+title: Build Chirper
 ---
 
-# Installation
+# Build Chirper
 
-> This documentation comes from bootcamp.laravel.com with some tweaks.
+In this section, we will build a Chirper with Laravel + Inertia + Svelte by using Breeze Lite. The content comes from [bootcamp.laravel.com](https://bootcamp.laravel.com) with some tweaks.
 
 ## Installing Laravel
 
