@@ -171,6 +171,7 @@ trait InstallsInertiaStacks
             $this->replaceInFile('.js', '.ts', base_path('vite.config.js'));
             $this->replaceInFile('.js', '.ts', resource_path('views/app.blade.php'));
             $this->replaceInFile('.vue', '.svelte', base_path('tailwind.config.js'));
+            $this->replaceInFile('"vite build', '"tsc && vite build', base_path('package.json'));
         } else {
             copy(base_path('vendor/laravel/breeze/stubs/inertia-common/jsconfig.json'), base_path('jsconfig.json'));
             copy(__DIR__.'/../../stubs/inertia-svelte/resources/js/app.js', resource_path('js/app.js'));
@@ -199,7 +200,7 @@ trait InstallsInertiaStacks
     }
 
     protected function installInertiaSvelteSsrStack()
-    {   
+    {
         if ($this->option('typescript')) {
             copy(__DIR__.'/../../stubs/inertia-svelte-ts/resources/js/ssr.ts', resource_path('js/ssr.ts'));
             $this->replaceInFile("input: 'resources/js/app.ts',", "input: 'resources/js/app.ts',".PHP_EOL."            ssr: 'resources/js/ssr.ts',", base_path('vite.config.js'));
