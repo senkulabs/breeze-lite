@@ -164,7 +164,6 @@ We can then create our front-end `Chirps/Index` page component with a form for c
     import PrimaryButton from "@/Components/PrimaryButton.svelte";
     import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.svelte";
     import { page, useForm } from "@inertiajs/svelte";
-    import { route } from 'ziggy-js';
 
     const form = useForm({
         message: ''
@@ -255,8 +254,8 @@ class ChirpController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) // [!code ++]
-    public function store(Request $request): RedirectResponse // [!code --]
+    public function store(Request $request) // [!code --]
+    public function store(Request $request): RedirectResponse // [!code ++]
     {
         // // [!code --]
         $validated = $request->validate([ // [!code ++]
