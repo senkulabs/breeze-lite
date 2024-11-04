@@ -177,8 +177,6 @@ We can then create our front-end `Chirps/Index` page component with a form for c
             }
         });
     }
-
-    const chirps = $page.props.chirps;
 </script>
 
 <svelte:head>

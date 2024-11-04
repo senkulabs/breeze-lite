@@ -79,7 +79,7 @@ Next, let's create a `Chirp` component for our front-end. This component will be
         <div class="flex justify-between items-center">
             <div>
                 <span class="text-gray-800">{chirp.user.name}</span>
-                <small class="ml-2 text-sm text-gray-600">{{ new Date(chirp.created_at).toLocaleString() }}</small>
+                <small class="ml-2 text-sm text-gray-600">{ new Date(chirp.created_at).toLocaleString() }</small>
             </div>
         </div>
         <p class="mt-4 text-lg text-gray-900">{chirp.message}</p>
@@ -113,7 +113,7 @@ Finally, we will update our `Chirps/Index` page component to accept the `chirps`
         });
     }
 
-    const chirps = $page.props.chirps;
+    const chirps = $page.props.chirps; // [!code ++]
 </script>
 
 <svelte:head>
@@ -187,8 +187,8 @@ Then we can use this library in our `Chirp` component to display relative dates:
         <div class="flex justify-between items-center">
             <div>
                 <span class="text-gray-800">{chirp.user.name}</span>
-                <small class="ml-2 text-sm text-gray-600">{{ new Date(chirp.created_at).toLocaleString() }}</small> // [!code --]
-                <small class="ml-2 text-sm text-gray-600">{{ dayjs(chirp.created_at).fromNow() }}</small> // [!code ++]
+                <small class="ml-2 text-sm text-gray-600">{ new Date(chirp.created_at).toLocaleString() }</small> // [!code --]
+                <small class="ml-2 text-sm text-gray-600">{ dayjs(chirp.created_at).fromNow() }</small> // [!code ++]
             </div>
         </div>
         <p class="mt-4 text-lg text-gray-900">{chirp.message}</p>

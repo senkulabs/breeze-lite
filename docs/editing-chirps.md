@@ -45,11 +45,10 @@ We're going to use the `Dropdown` component that comes with Breeze, which we'll 
     import dayjs from 'dayjs';
     import relativeTime from 'dayjs/plugin/relativeTime';
     import { useForm, page } from '@inertiajs/svelte'; // [!code ++]
-    import { route } from 'ziggy-js'; // [!code ++]
     
     dayjs.extend(relativeTime);
 
-    let { chirp } = $props(); // [!code ++]
+    let { chirp } = $props();
 
     let editing = $state(false); // [!code ++]
 
