@@ -9,11 +9,11 @@ import { hydrate, mount } from 'svelte';
 createInertiaApp({
     resolve: (name) =>
         resolvePageComponent(`./Pages/${name}.svelte`, import.meta.glob<ResolvedComponent>('./Pages/**/*.svelte')),
-    setup({ el, App }) {
+    setup({ el, App, props }) {
         if (el.dataset.serverRendered === 'true') {
-            hydrate(App, { target: el })
+            hydrate(App, { target: el, props })
         } else {
-            mount(App, { target: el })
+            mount(App, { target: el, props })
         }
     },
 })
