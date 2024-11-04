@@ -5,9 +5,11 @@ import type { route as ziggyRoute } from 'ziggy-js';
 
 declare global {
     interface Window {
-        axios: AxiosInstance
-    };
-    const route: typeof ziggyRoute;
+        axios: AxiosInstance;
+    }
+
+    /* eslint-disable no-var */
+    var route: typeof ziggyRoute;
 }
 
 declare module '@inertiajs/core' {
