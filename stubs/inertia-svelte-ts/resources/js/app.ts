@@ -10,6 +10,10 @@ createInertiaApp({
     resolve: (name) =>
         resolvePageComponent(`./Pages/${name}.svelte`, import.meta.glob<ResolvedComponent>('./Pages/**/*.svelte')),
     setup({ el, App, props }) {
+        if (!el) {
+            console.error('Target element not found');
+            return;
+        }
         if (el.dataset.serverRendered === 'true') {
             hydrate(App, { target: el, props })
         } else {
