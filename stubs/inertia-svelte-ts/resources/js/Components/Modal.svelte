@@ -29,10 +29,12 @@
     )
 
     $effect(() => {
-        document.body.style.overflow = show ? 'hidden' : 'visible'
+        if (document) document.body.style.overflow = show ? 'hidden' : 'visible'
     })
 
-    onDestroy(() => (document.body.style.overflow = 'visible'))
+    onDestroy(() => { 
+        if (document) document.body.style.overflow = 'visible' 
+    })
 
     function close() {
         if (closeable) {
@@ -45,9 +47,12 @@
             onclose()
         }
     }
+
+    let document;
 </script>
 
 <svelte:window on:keydown={closeOnEscape} />
+<svelte:document bind:this={document} />
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <Portal target="body">
