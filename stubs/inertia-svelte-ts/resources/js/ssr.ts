@@ -2,7 +2,7 @@ import { createInertiaApp, type ResolvedComponent } from '@inertiajs/svelte';
 import createServer from '@inertiajs/svelte/server';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { render } from 'svelte/server';
-import { route } from 'ziggy-js';
+import { route } from '../../vendor/tightenco/ziggy';
 
 createServer((page) =>
     createInertiaApp({
