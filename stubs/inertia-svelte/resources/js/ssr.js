@@ -10,7 +10,7 @@ createServer((page) =>
         resolve: (name) =>
             resolvePageComponent(`./Pages/${name}.svelte`, import.meta.glob('./Pages/**/*.svelte')),
         setup({ App, props }) {
-            globalThis.route = (name, params, absolute) => 
+            global.route = (name, params, absolute) => 
                 route(name, params, absolute, {
                     ...page.props.ziggy,
                     location: new URL(page.props.ziggy.location)
