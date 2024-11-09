@@ -18,5 +18,5 @@ php artisan breeze:install
 
 This project use Svelte 5 and Inertia. The Svelte components come from:
 
-- JavaScript: [Pull Request from Michael Sieminski in Laravel/Breeze](https://github.com/laravel/breeze/pull/247).
+- JavaScript: [Michael Sieminski's Pull Request in Laravel/Breeze](https://github.com/laravel/breeze/pull/247).
 - TypeScript: [pedroborges/laravel-breeze-svelte](https://github.com/pedroborges/laravel-breeze-svelte).
