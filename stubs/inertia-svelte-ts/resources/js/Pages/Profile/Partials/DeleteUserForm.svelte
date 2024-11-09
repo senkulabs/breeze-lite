@@ -66,7 +66,7 @@
                     bind:this={passwordInput}
                     bind:value={$form.password}
                     type="password"
-                    class="mt-1 block w-3/4"
+                    class="mt-1 block w-full"
                     placeholder="Password"
                     onkeyup={(e: KeyboardEvent) => e.key === 'Enter' && deleteUser()}
                 />

@@ -4,6 +4,8 @@
     import Portal from 'svelte-portal';
     import Transition from 'svelte-transition';
 
+    let document;
+
     let {
         children,
         closeable = true,
@@ -16,7 +18,7 @@
         maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
         onclose?: () => void
         show?: boolean
-    } = $props()
+    } = $props();
 
     let maxWidthClass = $derived(
         {
@@ -32,23 +34,22 @@
         if (document) document.body.style.overflow = show ? 'hidden' : 'visible'
     })
 
-    onDestroy(() => { 
+    onDestroy(() => {
+        document.removeEventListener('keydown', closeOnEscape); 
         if (document) document.body.style.overflow = 'visible' 
     })
 
     function close() {
         if (closeable) {
-            onclose()
+            onclose();
         }
     }
 
     function closeOnEscape(e: KeyboardEvent) {
         if (e.key === 'Escape' && show) {
-            onclose()
+            onclose();
         }
     }
-
-    let document;
 </script>
 
 <svelte:window on:keydown={closeOnEscape} />

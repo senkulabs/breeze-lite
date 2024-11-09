@@ -1,5 +1,6 @@
 <script>
     import { onDestroy } from 'svelte';
+    import { derived } from 'svelte/store';
 
     let { children, closeable = true, maxWidth = '2xl', onclose = () => {}, show = false } = $props();
 
@@ -24,13 +25,15 @@
         document.body.style.overflow = 'visible';
     });
 
-    const maxWidthClass = {
-        'sm': 'sm:max-w-sm',
-        'md': 'sm:max-w-md',
-        'lg': 'sm:max-w-lg',
-        'xl': 'sm:max-w-xl',
-        '2xl': 'sm:max-w-2xl'
-    }[maxWidth]
+    let maxWidthClass = $derived(
+        {
+            'sm': 'sm:max-w-sm',
+            'md': 'sm:max-w-md',
+            'lg': 'sm:max-w-lg',
+            'xl': 'sm:max-w-xl',
+            '2xl': 'sm:max-w-2xl'
+        }[maxWidth],
+    );
 </script>
 
 <svelte:window onkeydown={closeOnEscape}/>

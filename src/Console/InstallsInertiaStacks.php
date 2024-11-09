@@ -35,7 +35,6 @@ trait InstallsInertiaStacks
                 'svelte-portal' => '^2.2.1',
                 'svelte-preprocess' => '^5.1.3',
                 'svelte-transition' => '^0.0.17',
-                'vite-plugin-run' => '^0.6.0',
             ] + $packages;
         });
 
