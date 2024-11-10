@@ -6,7 +6,6 @@
     import SecondaryButton from "@/Components/SecondaryButton.svelte";
     import TextInput from "@/Components/TextInput.svelte";
     import { useForm } from "@inertiajs/svelte";
-    
 
     let confirmingUserDeletion = $state(false);
 
@@ -53,55 +52,53 @@
 
     <DangerButton type="button" onclick={confirmUserDeletion}>Delete Account</DangerButton>
 
-    {#if confirmingUserDeletion}
-        <Modal onclose={closeModal} show={confirmUserDeletion}>
-            <div class="p-6">
-                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    Are you sure you want to delete your account?
-                </h2>
+    <Modal onclose={closeModal} show={confirmingUserDeletion}>
+        <div class="p-6">
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                Are you sure you want to delete your account?
+            </h2>
 
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    Once your account is deleted, all of its resources and data
-                    will be permanently deleted. Please enter your password to
-                    confirm you would like to permanently delete your account.
-                </p>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                Once your account is deleted, all of its resources and data
+                will be permanently deleted. Please enter your password to
+                confirm you would like to permanently delete your account.
+            </p>
 
-                <div class="mt-6">
-                    <InputLabel
-                        for="password"
-                        value="Password"
-                        class="sr-only"
-                    />
+            <div class="mt-6">
+                <InputLabel
+                    for="password"
+                    value="Password"
+                    class="sr-only"
+                />
 
-                    <TextInput
-                        id="password"
-                        bind:this={passwordInput}
-                        bind:value={$form.password}
-                        type="password"
-                        class="mt-1 block w-full"
-                        placeholder="Password"
-                        onkeyup={(event) => {
-                            if (event.key === "Enter") deleteUser();
-                        }}
-                    />
+                <TextInput
+                    id="password"
+                    bind:this={passwordInput}
+                    bind:value={$form.password}
+                    type="password"
+                    class="mt-1 block w-full"
+                    placeholder="Password"
+                    onkeyup={(event) => {
+                        if (event.key === "Enter") deleteUser();
+                    }}
+                />
 
-                    <InputError message={$form.errors.password} class="mt-2" />
-                </div>
-
-                <div class="mt-6 flex justify-end">
-                    <SecondaryButton onclick={closeModal}>
-                        Cancel
-                    </SecondaryButton>
-
-                    <DangerButton
-                        class="ml-3"
-                        processing={$form.processing}
-                        onclick={deleteUser}
-                    >
-                        Delete Account
-                    </DangerButton>
-                </div>
+                <InputError message={$form.errors.password} class="mt-2" />
             </div>
-        </Modal>
-    {/if}
+
+            <div class="mt-6 flex justify-end">
+                <SecondaryButton onclick={closeModal}>
+                    Cancel
+                </SecondaryButton>
+
+                <DangerButton
+                    class="ml-3"
+                    processing={$form.processing}
+                    onclick={deleteUser}
+                >
+                    Delete Account
+                </DangerButton>
+            </div>
+        </div>
+    </Modal>
 </section>
