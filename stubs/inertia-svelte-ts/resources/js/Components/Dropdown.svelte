@@ -1,6 +1,8 @@
 <script lang="ts">
+    import type { TransitionConfig } from 'svelte/transition';
     import type { Snippet } from 'svelte';
-    import Transition from 'svelte-transition';
+    import { fade } from 'svelte/transition';
+    import { cubicIn, cubicOut } from 'svelte/easing';
 
     let {
         align = 'right',
@@ -31,6 +33,44 @@
             open = false
         }
     }
+
+    interface TransitionParams {
+        delay?: number;
+        duration?: number;
+        easing?: (t: number) => number;
+    }
+
+    function enter(node: HTMLElement, {
+        delay = 0,
+        duration = 200,
+        easing = cubicOut
+    }: TransitionParams = {}): TransitionConfig {
+        return {
+            delay,
+            duration,
+            easing,
+            css: (t: number) => `
+                opacity: ${t};
+                transform: scale(${0.95 + 0.05 * t});
+            `
+        }
+    }
+
+    function leave(node: HTMLElement, {
+        delay = 0,
+        duration = 75,
+        easing = cubicIn
+    }: TransitionParams = {}): TransitionConfig {
+        return {
+            delay,
+            duration,
+            easing,
+            css: (t: number) => `
+                opacity: ${t};
+                transform: scale(${0.95 + 0.05 * t});
+            `
+        }
+    }
 </script>
 
 <svelte:window on:keydown={closeOnEscape} />
@@ -45,24 +85,13 @@
     <!-- Full Screen Dropdown Overlay -->
     {#if open}
         <div class="fixed inset-0 z-40" onclick={() => (open = false)}></div>
-    {/if}
-
-    <Transition
-        show={open}
-        enter="transition ease-out duration-200"
-        enterFrom="opacity-0 scale-95"
-        enterTo="opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="opacity-100 scale-100"
-        leaveTo="opacity-0 scale-95"
-    >
-        <div
-            class="absolute z-50 mt-2 rounded-md shadow-lg {widthClass} {alignmentClasses}"
-            onclick={() => (open = false)}
-        >
-            <div class="rounded-md ring-1 ring-black ring-opacity-5 {contentClasses}">
-                {@render content()}
+        <div in:enter out:leave>
+            <div class="absolute z-50 mt-2 rounded-md shadow-lg {widthClass} {alignmentClasses}"
+            onclick={() => (open = false)}>
+                <div class="rounded-md ring-1 ring-black ring-opacity-5 {contentClasses}">
+                    {@render content()}
+                </div>
             </div>
         </div>
-    </Transition>
+    {/if}
 </div>

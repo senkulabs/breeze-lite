@@ -4,7 +4,8 @@
     import InputLabel from '@/Components/InputLabel.svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
-    import Transition from 'svelte-transition';
+    import { fade } from 'svelte/transition';
+    import { cubicInOut } from 'svelte/easing';
 
     let passwordInput: TextInput;
     let currentPasswordInput: TextInput;
@@ -91,15 +92,11 @@
         <div class="flex items-center gap-4">
             <PrimaryButton disabled={$form.processing}>Save</PrimaryButton>
 
-            <Transition
-                show={$form.recentlySuccessful}
-                enter="transition ease-in-out"
-                enterFrom="opacity-0"
-                leave="transition ease-in-out"
-                leaveFrom="opacity-0"
-            >
+            {#if $form.recentlySuccessful}
+            <div transition:fade={{ easing: cubicInOut }}>
                 <p class="text-sm text-gray-600 transition ease-in-out dark:text-gray-400">Saved.</p>
-            </Transition>
+            </div>
+            {/if}
         </div>
     </form>
 </section>

@@ -32,9 +32,7 @@ trait InstallsInertiaStacks
                 'tailwindcss' => '^3.4.10',
                 'svelte' => '^5.0',
                 'svelte-check' => '^3.6.3',
-                'svelte-portal' => '^2.2.1',
                 'svelte-preprocess' => '^5.1.3',
-                'svelte-transition' => '^0.0.17',
             ] + $packages;
         });
 
