@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from "svelte";
+    import { onMount } from 'svelte';
     let { class: className, value = $bindable(), ...attrs } = $props();
 
     let input;

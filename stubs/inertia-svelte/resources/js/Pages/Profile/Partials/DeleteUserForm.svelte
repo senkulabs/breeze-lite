@@ -1,11 +1,11 @@
 <script>
-    import DangerButton from "@/Components/DangerButton.svelte";
-    import InputLabel from "@/Components/InputLabel.svelte";
-    import InputError from "@/Components/InputError.svelte";
-    import Modal from "@/Components/Modal.svelte";
-    import SecondaryButton from "@/Components/SecondaryButton.svelte";
-    import TextInput from "@/Components/TextInput.svelte";
-    import { useForm } from "@inertiajs/svelte";
+    import DangerButton from '@/Components/DangerButton.svelte';
+    import InputLabel from '@/Components/InputLabel.svelte';
+    import InputError from '@/Components/InputError.svelte';
+    import Modal from '@/Components/Modal.svelte';
+    import SecondaryButton from '@/Components/SecondaryButton.svelte';
+    import TextInput from '@/Components/TextInput.svelte';
+    import { useForm } from '@inertiajs/svelte';
 
     let confirmingUserDeletion = $state(false);
 

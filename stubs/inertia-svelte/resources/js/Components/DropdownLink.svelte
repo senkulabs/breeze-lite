@@ -1,5 +1,5 @@
 <script>
-    import { Link } from "@inertiajs/svelte";
+    import { Link } from '@inertiajs/svelte';
 
     let { href = '#', children, ...attrs } = $props();
 </script>

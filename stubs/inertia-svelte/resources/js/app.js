@@ -1,7 +1,7 @@
 import './bootstrap.js';
 import '../css/app.css';
 
-import { createInertiaApp } from "@inertiajs/svelte";
+import { createInertiaApp } from '@inertiajs/svelte';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { hydrate, mount } from 'svelte';
 
