@@ -94,14 +94,13 @@ Finally, we can add a delete button to the dropdown menu we created earlier in o
 ::: code-group
 ```svelte [resources/js/Components/Chirp.svelte]
 <script>
-    import Dropdown from './Dropdown.svelte';
-    import DropdownLink from './DropdownLink.svelte'; // [!code ++]
-    import InputError from './InputError.svelte';
-    import PrimaryButton from './PrimaryButton.svelte';
     import dayjs from 'dayjs';
     import relativeTime from 'dayjs/plugin/relativeTime';
+    import Dropdown from './Dropdown.svelte';
+    import InputError from './InputError.svelte';
+    import PrimaryButton from './PrimaryButton.svelte';
     import { useForm, page } from '@inertiajs/svelte';
-    import { route } from 'ziggy-js';
+    import DropdownLink from './DropdownLink.svelte'; // [!code ++]
     
     dayjs.extend(relativeTime);
 

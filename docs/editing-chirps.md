@@ -39,11 +39,11 @@ We're going to use the `Dropdown` component that comes with Breeze, which we'll 
 ::: code-group
 ```svelte [resources/js/Components/Chirp.svelte]
 <script>
+    import dayjs from 'dayjs';
+    import relativeTime from 'dayjs/plugin/relativeTime';
     import Dropdown from './Dropdown.svelte'; // [!code ++]
     import InputError from './InputError.svelte'; // [!code ++]
     import PrimaryButton from './PrimaryButton.svelte'; // [!code ++]
-    import dayjs from 'dayjs';
-    import relativeTime from 'dayjs/plugin/relativeTime';
     import { useForm, page } from '@inertiajs/svelte'; // [!code ++]
     
     dayjs.extend(relativeTime);
@@ -58,7 +58,7 @@ We're going to use the `Dropdown` component that comes with Breeze, which we'll 
 
     function submit(e) { // [!code ++]
         e.preventDefault(); // [!code ++]
-        $form.patch(route('chirps.update', chirp.id), { // [!code ++]
+        $form.patch(route('chirps.update', chirp), { // [!code ++]
             onSuccess: () => { // [!code ++]
                 editing = false; // [!code ++]
             } // [!code ++]
@@ -192,3 +192,18 @@ class ChirpPolicy
 ## Testing it out
 
 Time to test it out! Go ahead and edit a few Chirps using the dropdown menu. If you register another user account, you'll see that only the author of a Chirp can edit it.
+
+::: danger WAIT ✋
+Before go to the next chapter, do you see something weird when we edit a chirp, we get the incorrect chirp. But why? 🧐
+:::
+
+::: details Here's the answer. 👀
+
+
+We render the list of chirps using Chirp component. Each chirp is unique by id. Because we add the edit action in Chirp (and delete action in next section), we need to add a unique identify for each list item in order to make Svelte compiler use it to diff when the data changes.
+
+```html
+{#each chirps as chirp} // [!code --]
+{#each chirps as chirp (chirp.id)} // [!code ++]
+```
+:::

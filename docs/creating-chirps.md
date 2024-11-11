@@ -160,10 +160,10 @@ We can then create our front-end `Chirps/Index` page component with a form for c
 ::: code-group
 ```svelte [resources/js/Pages/Chirps/Index.svelte]
 <script>
-    import InputError from "@/Components/InputError.svelte";
-    import PrimaryButton from "@/Components/PrimaryButton.svelte";
-    import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.svelte";
-    import { page, useForm } from "@inertiajs/svelte";
+    import InputError from '@/Components/InputError.svelte';
+    import PrimaryButton from '@/Components/PrimaryButton.svelte';
+    import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.svelte';
+    import { page, useForm } from '@inertiajs/svelte';
 
     const form = useForm({
         message: ''
