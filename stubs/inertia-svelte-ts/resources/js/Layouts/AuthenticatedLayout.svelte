@@ -8,7 +8,7 @@
     import NavLink from '@/Components/NavLink.svelte';
     import ResponsiveNavLink from '@/Components/ResponsiveNavLink.svelte';
 
-    let { children, header }: { children: Snippet; header: Snippet } = $props()
+    let { children, header }: { children: Snippet; header: Snippet } = $props();
 
     let showingNavigationDropdown = $state(false);
 </script>
