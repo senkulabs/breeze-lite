@@ -1,14 +1,14 @@
-<script lang="ts">
+<script>
     import { inertia, useForm } from '@inertiajs/svelte';
     import GuestLayout from '@/Layouts/GuestLayout.svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
 
-    let { status }: { status?: string } = $props();
+    let { status } = $props();
 
     let verificationLinkSent = $derived(status === 'verification-link-sent');
     const form = useForm({});
 
-    function submit(e: SubmitEvent) {
+    function submit(e) {
         e.preventDefault();
         $form.post(route('verification.send'));
     }

@@ -43,34 +43,37 @@
         <!-- Email Address -->
         <div>
             <InputLabel for="email" value="Email" />
-            <TextInput id="email" class="block mt-1 w-full" type="email" name="email" bind:value={$form.email} required autocomplete="username" />
+            <TextInput id="email" class="mt-1 block w-full" type="email" name="email" bind:value={$form.email} required autocomplete="username" />
             <InputError message={$form.errors.email} class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
             <InputLabel for="password" value="Password" />
-            <TextInput id="password" class="block mt-1 w-full" type="password" name="password" bind:value={$form.password} required autocomplete="current-password"/>
+            <TextInput id="password" class="mt-1 block w-full" type="password" name="password" bind:value={$form.password} required autocomplete="current-password"/>
             <InputError message={$form.errors.password} class="mt-2" />
         </div>
 
         <!-- Remember Me -->
         <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <Checkbox id="remember_me" name="remember"/>
-                <span class="ms-2 text-sm text-gray-600">Remember me</span>
+            <label for="remember-me" class="flex items-center">
+                <Checkbox id="remember-me" name="remember"/>
+                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="mt-4 flex items-center justify-end">
             {#if canResetPassword}
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                use:inertia href={route('password.request')}>
+                <a
+                    use:inertia
+                    href={route('password.request')}
+                    class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+                >
                     Forgot your password?
                 </a>
             {/if}
 
-            <PrimaryButton disabled={$form.processing} class="ms-4 {$form.processing && 'opacity-25'}">Log in</PrimaryButton>
+            <PrimaryButton class="ms-4 {$form.processing && 'opacity-25'}" disabled={$form.processing}>Log in</PrimaryButton>
         </div>
     </form>
 </GuestLayout>

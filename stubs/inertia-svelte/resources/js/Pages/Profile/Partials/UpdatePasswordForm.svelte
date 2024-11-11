@@ -23,12 +23,12 @@
             onSuccess: () => $form.reset(),
             onError: () => {
                 if ($form.errors.password) {
-                    $form.reset('password', 'password_confirmation')
-                    passwordInput?.focus()
+                    $form.reset('password', 'password_confirmation');
+                    passwordInput?.focus();
                 }
                 if ($form.errors.current_password) {
-                    $form.reset('current_password')
-                    currentPasswordInput?.focus()
+                    $form.reset('current_password');
+                    currentPasswordInput?.focus();
                 }
             },
         });

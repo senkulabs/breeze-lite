@@ -75,8 +75,8 @@
         </div>
 
         <div class="mt-4 block">
-            <label class="flex items-center">
-                <Checkbox name="remember" bind:checked={$form.remember} />
+            <label for="remember-me" class="flex items-center">
+                <Checkbox id="remember-me" name="remember" bind:checked={$form.remember} />
                 <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
             </label>
         </div>
@@ -92,9 +92,7 @@
                 </a>
             {/if}
 
-            <PrimaryButton class="ms-4 {$form.processing && 'opacity-25'}" disabled={$form.processing}
-                >Log in</PrimaryButton
-            >
+            <PrimaryButton class="ms-4 {$form.processing && 'opacity-25'}" disabled={$form.processing}>Log in</PrimaryButton>
         </div>
     </form>
 </GuestLayout>

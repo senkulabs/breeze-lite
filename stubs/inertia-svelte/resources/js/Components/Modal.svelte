@@ -28,8 +28,6 @@
     }
 
     onDestroy(() => {
-        // NOTE: We don't need to use `document.body.removeChild` 
-        // because this component (Modal) itself already removed when onDestroy.
         document.removeEventListener('keydown', closeOnEscape);
         document.body.style.overflow = 'visible';
     });
