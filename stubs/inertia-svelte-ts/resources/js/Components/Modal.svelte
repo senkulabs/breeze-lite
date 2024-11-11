@@ -6,6 +6,7 @@
 
     // svelte-ignore non_reactive_update
     let dialog: HTMLDivElement;
+    let document: Document;
 
     let {
         children,
@@ -33,11 +34,10 @@
 
     $effect(() => {
         if (show) document.body.appendChild(dialog);
-        if (document) document.body.style.overflow = show ? 'hidden' : 'visible'
+        if (document) document.body.style.overflow = show ? 'hidden' : 'visible';
     })
 
     onDestroy(() => {
-        document.removeEventListener('keydown', closeOnEscape); 
         if (document) document.body.style.overflow = 'visible';
     })
 
@@ -55,6 +55,7 @@
 </script>
 
 <svelte:window on:keydown={closeOnEscape} />
+<svelte:document bind:this={document} />
 
 {#if show}
 <div bind:this={dialog} style:display={show ? 'contents' : 'none'}>
