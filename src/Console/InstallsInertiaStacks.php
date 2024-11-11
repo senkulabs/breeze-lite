@@ -3,6 +3,7 @@
 namespace SenkuLabs\Breeze\Console;
 
 use Illuminate\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
 use Laravel\Breeze\Console\InstallsInertiaStacks as LaravelBreezeInstallsInertiaStacks;
 
 trait InstallsInertiaStacks
@@ -67,21 +68,19 @@ trait InstallsInertiaStacks
                     ] + $packages;
                 });
 
-                $this->updateNodeScripts(function ($scripts) {
-                    return $scripts + [
-                        // 'lint' => 'eslint resources/js --ext .js,.ts,.vue --ignore-path .gitignore --fix',
-                    ];
-                });
-
-                // copy(__DIR__.'/../../stubs/inertia-vue-ts/.eslintrc.cjs', base_path('.eslintrc.cjs'));
-            } else {
+                // TODO: Something related with eslint goes here.
                 // $this->updateNodeScripts(function ($scripts) {
-                //     return $scripts + [
-                //         'lint' => 'eslint resources/js --ext .js,.vue --ignore-path .gitignore --fix',
-                //     ];
+                    
                 // });
 
-                // copy(__DIR__.'/../../stubs/inertia-vue/.eslintrc.cjs', base_path('.eslintrc.cjs'));
+                // TODO: Copy .estlintrc file from inertia-svelte-ts into the Laravel project
+            } else {
+                // TODO: Something related with eslint goes here.
+                // $this->updateNodeScripts(function ($scripts) {
+                    
+                // });
+
+                // TODO: Copy .estlintrc file from inertia-svelte into the Laravel project
             }
 
             copy(base_path('vendor/laravel/breeze/stubs/inertia-common/.prettierrc'), base_path('.prettierrc'));
@@ -129,7 +128,11 @@ trait InstallsInertiaStacks
         }
 
         if (! $this->option('dark')) {
-            // NOTE: Dark mode can wait.
+            $this->removeDarkClasses((new Finder)
+                ->in(resource_path('js'))
+                ->name(['*.svelte', '*.svelte'])
+                ->notName(['Welcome.svelte'])
+            );
         }
 
         // Tests...

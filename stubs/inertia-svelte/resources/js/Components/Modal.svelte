@@ -6,13 +6,13 @@
     // svelte-ignore non_reactive_update
     /** @type {HTMLDivElement} */
     let dialog;
+    /** @type {Document} */
+    let document;
     let { children, closeable = true, maxWidth = '2xl', onclose = () => {}, show = false } = $props();
 
     $effect(() => {
-        if (show) {
-            document.body.appendChild(dialog);
-        }
-        document.body.style.overflow = show ? 'hidden' : 'visible';
+        if (show) document.body.appendChild(dialog);
+        if (document) document.body.style.overflow = show ? 'hidden' : 'visible';
     });
 
     const close = () => {
@@ -28,10 +28,7 @@
     }
 
     onDestroy(() => {
-        // NOTE: We don't need to use `document.body.removeChild` 
-        // because this component (Modal) itself already removed when onDestroy.
-        document.removeEventListener('keydown', closeOnEscape);
-        document.body.style.overflow = 'visible';
+        if (document) document.body.style.overflow = 'visible';
     });
 
     let maxWidthClass = $derived({
@@ -44,6 +41,7 @@
 </script>
 
 <svelte:window onkeydown={closeOnEscape}/>
+<svelte:document bind:this={document}/>
 
 {#if show}
 <div bind:this={dialog} style:display={show ? 'contents' : 'none'}>
