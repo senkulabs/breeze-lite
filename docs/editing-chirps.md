@@ -200,7 +200,7 @@ Before go to the next chapter, do you see something weird when we edit a chirp, 
 ::: details Here's the answer. 👀
 
 
-We render the list of chirps using Chirp component. Each chirp is unique by id. Because we add the edit action in Chirp (and delete action in next section), we need to add a unique identify for each list item in order to make Svelte compiler use it to diff when the data changes.
+We render the list of chirps using Chirp component. Each chirp is unique by id. Because we add the edit action in Chirp (and delete action in next chapter), we need to add a unique identify for each list item in order to make Svelte compiler use it to diff when the data changes.
 
 ```svelte
 {#each chirps as chirp} // [!code --]
