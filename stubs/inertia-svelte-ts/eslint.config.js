@@ -32,7 +32,8 @@ export default ts.config(
 	},
     {
         rules: {
-            'no-undef': 'off'
+            'no-undef': 'off',
+			'@typescript-eslint/no-unused-expressions': 'off',
         }
     }
 );
