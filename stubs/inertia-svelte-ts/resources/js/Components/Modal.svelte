@@ -6,7 +6,6 @@
 
     // svelte-ignore non_reactive_update
     let dialog: HTMLDivElement;
-    let document: Document;
 
     let {
         children,
@@ -55,7 +54,6 @@
 </script>
 
 <svelte:window on:keydown={closeOnEscape} />
-<svelte:document bind:this={document} />
 
 {#if show}
 <div bind:this={dialog} style:display={show ? 'contents' : 'none'}>
