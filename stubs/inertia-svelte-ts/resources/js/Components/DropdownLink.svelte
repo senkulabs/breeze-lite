@@ -14,7 +14,7 @@
         href: string;
         method?: Method;
         as?: keyof HTMLElementTagNameMap;
-    } = $props()
+    } = $props();
 </script>
 
 <Link

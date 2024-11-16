@@ -7,20 +7,20 @@
         value = $bindable(),
         ...attrs
     }: HTMLInputAttributes & {
-        value?: string
-    } = $props()
+        value?: string;
+    } = $props();
 
     let input: HTMLInputElement;
 
     export function focus() {
-        input?.focus()
+        input?.focus();
     }
 
     onMount(() => {
         if (attrs.autofocus && input) {
-            input.focus()
+            input.focus();
         }
-    })
+    });
 </script>
 
 <input

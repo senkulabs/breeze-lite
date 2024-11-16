@@ -7,8 +7,8 @@
         class: className,
         ...attrs
     }: HTMLButtonAttributes & {
-        children: Snippet
-    } = $props()
+        children: Snippet;
+    } = $props();
 </script>
 
 <button

@@ -6,7 +6,7 @@
         class: className,
         ...attrs
     }: HTMLInputAttributes & {
-        checked?: boolean
+        checked?: boolean;
     } = $props();
 </script>
 

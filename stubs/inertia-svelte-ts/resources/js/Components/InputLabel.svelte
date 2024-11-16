@@ -8,9 +8,9 @@
         value,
         ...attrs
     }: HTMLLabelAttributes & {
-        children?: Snippet
-        value?: string
-    } = $props()
+        children?: Snippet;
+        value?: string;
+    } = $props();
 </script>
 
 <label {...attrs} class="block text-sm font-medium text-gray-700 dark:text-gray-300 {className}">

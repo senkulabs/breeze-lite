@@ -6,29 +6,28 @@
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
     import { inertia, useForm } from '@inertiajs/svelte';
-    
 
     let {
         canResetPassword,
-        status,
+        status
     }: {
-        canResetPassword?: boolean
-        status?: string
-    } = $props()
+        canResetPassword?: boolean;
+        status?: string;
+    } = $props();
 
     const form = useForm({
         email: '',
         password: '',
-        remember: false,
-    })
+        remember: false
+    });
 
     const submit = (e: SubmitEvent) => {
-        e.preventDefault()
+        e.preventDefault();
 
         $form.post(route('login'), {
-            onFinish: () => $form.reset('password'),
-        })
-    }
+            onFinish: () => $form.reset('password')
+        });
+    };
 </script>
 
 <svelte:head>
@@ -92,7 +91,10 @@
                 </a>
             {/if}
 
-            <PrimaryButton class="ms-4 {$form.processing && 'opacity-25'}" disabled={$form.processing}>Log in</PrimaryButton>
+            <PrimaryButton
+                class="ms-4 {$form.processing && 'opacity-25'}"
+                disabled={$form.processing}>Log in</PrimaryButton
+            >
         </div>
     </form>
 </GuestLayout>

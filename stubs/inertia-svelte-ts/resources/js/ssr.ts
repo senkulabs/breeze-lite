@@ -18,11 +18,11 @@ createServer((page) =>
             globalThis.route<RouteName> = (name, params, absolute) =>
                 route(name, params as any, absolute, {
                     ...page.props.ziggy,
-                    location: page.props.ziggy.location,
+                    location: page.props.ziggy.location
                 });
             /* eslint-enable */
 
             return render(App, { props });
-        },
+        }
     })
 );

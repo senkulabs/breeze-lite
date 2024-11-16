@@ -7,21 +7,21 @@
 
     import { useForm } from '@inertiajs/svelte';
 
-    let { email, token }: { email: string; token: string } = $props()
+    let { email, token }: { email: string; token: string } = $props();
 
     const form = useForm({
         token: token,
         email: email,
         password: '',
-        password_confirmation: '',
-    })
+        password_confirmation: ''
+    });
 
     function submit(e: SubmitEvent) {
-        e.preventDefault()
+        e.preventDefault();
 
         $form.post(route('password.store'), {
-            onFinish: () => $form.reset('password', 'password_confirmation'),
-        })
+            onFinish: () => $form.reset('password', 'password_confirmation')
+        });
     }
 </script>
 

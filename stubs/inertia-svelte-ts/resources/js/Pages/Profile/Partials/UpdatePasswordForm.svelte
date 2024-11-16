@@ -15,29 +15,29 @@
     const form = useForm({
         current_password: '',
         password: '',
-        password_confirmation: '',
-    })
+        password_confirmation: ''
+    });
 
     function updatePassword(e: SubmitEvent) {
-        e.preventDefault()
+        e.preventDefault();
         $form.put(route('password.update'), {
             preserveScroll: true,
             onSuccess: () => $form.reset(),
             onError: () => {
                 if ($form.errors.password) {
-                    $form.reset('password', 'password_confirmation')
-                    passwordInput?.focus()
+                    $form.reset('password', 'password_confirmation');
+                    passwordInput?.focus();
                 }
                 if ($form.errors.current_password) {
-                    $form.reset('current_password')
-                    currentPasswordInput?.focus()
+                    $form.reset('current_password');
+                    currentPasswordInput?.focus();
                 }
-            },
-        })
+            }
+        });
     }
 </script>
 
-<section class="{className}">
+<section class={className}>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Update Password</h2>
 
@@ -95,9 +95,11 @@
             <PrimaryButton disabled={$form.processing}>Save</PrimaryButton>
 
             {#if $form.recentlySuccessful}
-            <div transition:fade={{ easing: cubicInOut }}>
-                <p class="text-sm text-gray-600 transition ease-in-out dark:text-gray-400">Saved.</p>
-            </div>
+                <div transition:fade={{ easing: cubicInOut }}>
+                    <p class="text-sm text-gray-600 transition ease-in-out dark:text-gray-400">
+                        Saved.
+                    </p>
+                </div>
             {/if}
         </div>
     </form>
