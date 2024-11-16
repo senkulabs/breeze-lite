@@ -7,6 +7,8 @@
     import SecondaryButton from '@/Components/SecondaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
 
+    let { class: className }: { class?: string } = $props();
+
     let confirmingUserDeletion = $state(false);
     let passwordInput: TextInput;
 
@@ -35,7 +37,7 @@
     }
 </script>
 
-<section class="space-y-6">
+<section class="space-y-6 {className}">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Delete Account</h2>
 

@@ -4,7 +4,7 @@
     import InputLabel from '@/Components/InputLabel.svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
-    
+
     import { useForm } from '@inertiajs/svelte';
 
     let { email, token }: { email: string; token: string } = $props()
@@ -78,7 +78,7 @@
         </div>
 
         <div class="mt-4 flex items-center justify-end">
-            <PrimaryButton class={$form.processing && 'opacity-25'} disabled={$form.processing}
+            <PrimaryButton class={$form.processing ? 'opacity-25' : ''} disabled={$form.processing}
                 >Reset Password</PrimaryButton
             >
         </div>

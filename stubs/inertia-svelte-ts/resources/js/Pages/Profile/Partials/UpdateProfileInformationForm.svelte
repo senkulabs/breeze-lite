@@ -10,9 +10,11 @@
     let {
         mustVerifyEmail,
         status,
+        class: className
     }: {
-        mustVerifyEmail?: boolean
-        status?: string
+        mustVerifyEmail?: boolean;
+        status?: string;
+        class?: string;
     } = $props()
 
     const user = $page.props.auth.user
@@ -27,7 +29,7 @@
     }
 </script>
 
-<section>
+<section class="{className}">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Profile Information</h2>
 

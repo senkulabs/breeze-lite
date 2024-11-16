@@ -7,6 +7,8 @@
     import { fade } from 'svelte/transition';
     import { cubicInOut } from 'svelte/easing';
 
+    let { class: className }: { class?: string } = $props();
+
     let passwordInput: TextInput;
     let currentPasswordInput: TextInput;
 
@@ -35,7 +37,7 @@
     }
 </script>
 
-<section>
+<section class="{className}">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Update Password</h2>
 

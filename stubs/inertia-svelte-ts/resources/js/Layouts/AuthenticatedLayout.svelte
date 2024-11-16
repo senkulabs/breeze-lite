@@ -1,7 +1,6 @@
 <script lang="ts">
     import type { Snippet } from 'svelte';
     import { inertia, page } from '@inertiajs/svelte';
-    
     import ApplicationLogo from '@/Components/ApplicationLogo.svelte';
     import Dropdown from '@/Components/Dropdown.svelte';
     import DropdownLink from '@/Components/DropdownLink.svelte';
@@ -120,7 +119,7 @@
 
                 <div class="mt-3 space-y-1">
                     <ResponsiveNavLink href={route('profile.edit')} active={route().current('profile.edit')}>Profile</ResponsiveNavLink>
-                    <ResponsiveNavLink href={route('logout')} method="post" type="button">Log Out</ResponsiveNavLink>
+                    <ResponsiveNavLink href={route('logout')} method="post" as="button">Log Out</ResponsiveNavLink>
                 </div>
             </div>
         </div>

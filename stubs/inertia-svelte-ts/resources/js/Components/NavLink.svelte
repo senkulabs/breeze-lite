@@ -1,16 +1,21 @@
 <script lang="ts">
     import type { Snippet } from 'svelte';
     import { Link } from '@inertiajs/svelte';
+    import type { Method } from '@inertia/core';
 
     let {
         active = false,
         children,
         href,
+        method,
+        as,
         ...attrs
     }: {
-        active?: boolean
-        children: Snippet
-        href: string
+        active?: boolean;
+        children: Snippet;
+        href: string;
+        method?: Method;
+        as?: keyof HTMLElementTagNameMap;
     } = $props()
 </script>
 
