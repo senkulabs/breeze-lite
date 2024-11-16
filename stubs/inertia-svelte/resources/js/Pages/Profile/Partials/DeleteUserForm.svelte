@@ -9,7 +9,6 @@
 
     let confirmingUserDeletion = $state(false);
 
-    // svelte-ignore non_reactive_update
     /** @type {HTMLInputElement} */
     let passwordInput;
 
