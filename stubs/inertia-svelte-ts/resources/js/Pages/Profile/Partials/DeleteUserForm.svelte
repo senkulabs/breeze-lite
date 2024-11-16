@@ -7,22 +7,24 @@
     import SecondaryButton from '@/Components/SecondaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
 
+    let { class: className }: { class?: string } = $props();
+
     let confirmingUserDeletion = $state(false);
     let passwordInput: TextInput;
 
     const form = useForm({
-        password: '',
-    })
+        password: ''
+    });
 
     function closeModal() {
-        $form.clearErrors()
-        $form.reset()
-        confirmingUserDeletion = false
+        $form.clearErrors();
+        $form.reset();
+        confirmingUserDeletion = false;
     }
 
     function confirmUserDeletion() {
-        confirmingUserDeletion = true
-        setTimeout(() => passwordInput?.focus(), 250)
+        confirmingUserDeletion = true;
+        setTimeout(() => passwordInput?.focus(), 250);
     }
 
     function deleteUser() {
@@ -30,18 +32,19 @@
             preserveScroll: true,
             onSuccess: () => closeModal(),
             onError: () => passwordInput?.focus(),
-            onFinish: () => $form.reset(),
-        })
+            onFinish: () => $form.reset()
+        });
     }
 </script>
 
-<section class="space-y-6">
+<section class="space-y-6 {className}">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Delete Account</h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
-            your account, please download any data or information that you wish to retain.
+            Once your account is deleted, all of its resources and data will be permanently deleted.
+            Before deleting your account, please download any data or information that you wish to
+            retain.
         </p>
     </header>
 
@@ -54,8 +57,9 @@
             </h2>
 
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Please enter
-                your password to confirm you would like to permanently delete your account.
+                Once your account is deleted, all of its resources and data will be permanently
+                deleted. Please enter your password to confirm you would like to permanently delete
+                your account.
             </p>
 
             <div class="mt-6">

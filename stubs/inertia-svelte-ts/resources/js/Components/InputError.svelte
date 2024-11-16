@@ -5,8 +5,8 @@
         message,
         ...attrs
     }: HTMLAttributes<HTMLDivElement> & {
-        message?: string
-    } = $props()
+        message?: string;
+    } = $props();
 </script>
 
 {#if message}

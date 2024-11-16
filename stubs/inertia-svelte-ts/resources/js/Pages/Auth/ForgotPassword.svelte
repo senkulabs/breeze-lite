@@ -4,19 +4,19 @@
     import InputLabel from '@/Components/InputLabel.svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
-    
+
     import { useForm } from '@inertiajs/svelte';
 
     let { status }: { status?: string } = $props();
 
     const form = useForm({
-        email: '',
-    })
+        email: ''
+    });
 
     function submit(e: SubmitEvent) {
-        e.preventDefault()
+        e.preventDefault();
 
-        $form.post(route('password.email'))
+        $form.post(route('password.email'));
     }
 </script>
 
@@ -26,8 +26,8 @@
 
 <GuestLayout>
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        Forgot your password? No problem. Just let us know your email address and we will email you a password reset
-        link that will allow you to choose a new one.
+        Forgot your password? No problem. Just let us know your email address and we will email you
+        a password reset link that will allow you to choose a new one.
     </div>
 
     {#if status}
@@ -54,7 +54,7 @@
         </div>
 
         <div class="mt-4 flex items-center justify-end">
-            <PrimaryButton class={$form.processing && 'opacity-25'} disabled={$form.processing}>
+            <PrimaryButton class={$form.processing ? 'opacity-25' : ''} disabled={$form.processing}>
                 Email Password Reset Link
             </PrimaryButton>
         </div>

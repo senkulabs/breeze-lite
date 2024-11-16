@@ -8,9 +8,9 @@
         type = 'button',
         ...attrs
     }: HTMLButtonAttributes & {
-        children: Snippet
-        type?: 'button' | 'submit' | 'reset'
-    } = $props()
+        children: Snippet;
+        type?: 'button' | 'submit' | 'reset';
+    } = $props();
 </script>
 
 <button

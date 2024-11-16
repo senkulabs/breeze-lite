@@ -20,19 +20,21 @@
 
 <GuestLayout>
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we
-        just emailed to you? If you didn't receive the email, we will gladly send you another.
+        Thanks for signing up! Before getting started, could you verify your email address by
+        clicking on the link we just emailed to you? If you didn't receive the email, we will gladly
+        send you another.
     </div>
 
     {#if verificationLinkSent}
         <div class="mb-4 text-sm font-medium text-green-600 dark:text-green-400">
-            A new verification link has been sent to the email address you provided during registration.
+            A new verification link has been sent to the email address you provided during
+            registration.
         </div>
     {/if}
 
     <form onsubmit={submit}>
         <div class="mt-4 flex items-center justify-between">
-            <PrimaryButton class={$form.processing && 'opacity-25'} disabled={$form.processing}>
+            <PrimaryButton class={$form.processing ? 'opacity-25' : ''} disabled={$form.processing}>
                 Resend Verification Email
             </PrimaryButton>
 

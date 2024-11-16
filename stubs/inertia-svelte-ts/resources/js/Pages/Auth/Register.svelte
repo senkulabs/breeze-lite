@@ -5,20 +5,20 @@
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
     import { inertia, useForm } from '@inertiajs/svelte';
-    
+
     const form = useForm({
         name: '',
         email: '',
         password: '',
-        password_confirmation: '',
-    })
+        password_confirmation: ''
+    });
 
     function submit(e: SubmitEvent) {
-        e.preventDefault()
+        e.preventDefault();
 
         $form.post(route('register'), {
-            onFinish: () => $form.reset('password', 'password_confirmation'),
-        })
+            onFinish: () => $form.reset('password', 'password_confirmation')
+        });
     }
 </script>
 
@@ -98,7 +98,10 @@
                 Already registered?
             </a>
 
-            <PrimaryButton class="ms-4 {$form.processing && 'opacity-25'}" disabled={$form.processing}>
+            <PrimaryButton
+                class="ms-4 {$form.processing && 'opacity-25'}"
+                disabled={$form.processing}
+            >
                 Register
             </PrimaryButton>
         </div>

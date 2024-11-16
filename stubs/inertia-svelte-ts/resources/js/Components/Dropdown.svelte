@@ -8,14 +8,14 @@
         content,
         contentClasses = 'py-1 bg-white dark:bg-gray-700',
         trigger,
-        width = '48',
+        width = '48'
     }: {
-        align?: 'left' | 'right'
-        content: Snippet
-        contentClasses?: string
-        trigger: Snippet
-        width?: '48'
-    } = $props()
+        align?: 'left' | 'right';
+        content: Snippet;
+        contentClasses?: string;
+        trigger: Snippet;
+        width?: '48';
+    } = $props();
 
     let open = $state(false);
     let widthClass = $derived({ '48': 'w-48' }[width]);
@@ -24,12 +24,12 @@
             ? 'ltr:origin-top-left rtl:origin-top-right start-0'
             : align === 'right'
               ? 'ltr:origin-top-right rtl:origin-top-left end-0'
-              : 'origin-top',
-    )
+              : 'origin-top'
+    );
 
     function closeOnEscape(e: KeyboardEvent) {
         if (open && e.key === 'Escape') {
-            open = false
+            open = false;
         }
     }
 
@@ -39,11 +39,10 @@
         easing?: (t: number) => number;
     }
 
-    function enter(node: HTMLElement, {
-        delay = 0,
-        duration = 200,
-        easing = cubicOut
-    }: TransitionParams = {}): TransitionConfig {
+    function enter(
+        node: HTMLElement,
+        { delay = 0, duration = 200, easing = cubicOut }: TransitionParams = {}
+    ): TransitionConfig {
         return {
             delay,
             duration,
@@ -52,14 +51,13 @@
                 opacity: ${t};
                 transform: scale(${0.95 + 0.05 * t});
             `
-        }
+        };
     }
 
-    function leave(node: HTMLElement, {
-        delay = 0,
-        duration = 75,
-        easing = cubicIn
-    }: TransitionParams = {}): TransitionConfig {
+    function leave(
+        node: HTMLElement,
+        { delay = 0, duration = 75, easing = cubicIn }: TransitionParams = {}
+    ): TransitionConfig {
         return {
             delay,
             duration,
@@ -68,7 +66,7 @@
                 opacity: ${t};
                 transform: scale(${0.95 + 0.05 * t});
             `
-        }
+        };
     }
 </script>
 
@@ -85,8 +83,10 @@
     {#if open}
         <div class="fixed inset-0 z-40" onclick={() => (open = false)}></div>
         <div in:enter out:leave>
-            <div class="absolute z-50 mt-2 rounded-md shadow-lg {widthClass} {alignmentClasses}"
-            onclick={() => (open = false)}>
+            <div
+                class="absolute z-50 mt-2 rounded-md shadow-lg {widthClass} {alignmentClasses}"
+                onclick={() => (open = false)}
+            >
                 <div class="rounded-md ring-1 ring-black ring-opacity-5 {contentClasses}">
                     {@render content()}
                 </div>

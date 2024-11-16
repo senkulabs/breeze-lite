@@ -10,24 +10,26 @@
     let {
         mustVerifyEmail,
         status,
+        class: className
     }: {
-        mustVerifyEmail?: boolean
-        status?: string
-    } = $props()
+        mustVerifyEmail?: boolean;
+        status?: string;
+        class?: string;
+    } = $props();
 
-    const user = $page.props.auth.user
+    const user = $page.props.auth.user;
     const form = useForm({
         name: user.name,
-        email: user.email,
-    })
+        email: user.email
+    });
 
     function submit(e: SubmitEvent) {
-        e.preventDefault()
-        $form.patch(route('profile.update'))
+        e.preventDefault();
+        $form.patch(route('profile.update'));
     }
 </script>
 
-<section>
+<section class={className}>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Profile Information</h2>
 
@@ -90,9 +92,11 @@
             <PrimaryButton disabled={$form.processing}>Save</PrimaryButton>
 
             {#if $form.recentlySuccessful}
-            <div transition:fade={{ easing: cubicInOut }}>
-                <p class="text-sm text-gray-600 transition ease-in-out dark:text-gray-400">Saved.</p>
-            </div>
+                <div transition:fade={{ easing: cubicInOut }}>
+                    <p class="text-sm text-gray-600 transition ease-in-out dark:text-gray-400">
+                        Saved.
+                    </p>
+                </div>
             {/if}
         </div>
     </form>
