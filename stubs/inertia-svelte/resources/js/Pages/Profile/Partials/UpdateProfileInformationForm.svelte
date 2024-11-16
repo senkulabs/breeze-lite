@@ -7,9 +7,8 @@
     import { fade } from 'svelte/transition';
     import { cubicInOut } from 'svelte/easing';
 
-    let { class: className = '' } = $props();
-
     let {
+        class: className = '',
         mustVerifyEmail,
         status,
     } = $props();
