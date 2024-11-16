@@ -7,6 +7,8 @@
     import { fade } from 'svelte/transition';
     import { cubicInOut } from 'svelte/easing';
 
+    let { class: className = '' } = $props();
+
     let {
         mustVerifyEmail,
         status,
@@ -24,7 +26,7 @@
     }
 </script>
 
-<section>
+<section class="{className}">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Profile Information</h2>
 
