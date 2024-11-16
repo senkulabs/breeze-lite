@@ -32,8 +32,7 @@ trait InstallsInertiaStacks
                 'postcss' => '^8.4.33',
                 'tailwindcss' => '^3.4.10',
                 'svelte' => '^5.0',
-                'svelte-check' => '^3.6.3',
-                'svelte-preprocess' => '^5.1.3',
+                'svelte-check' => '^4.0.0',
             ] + $packages;
         });
 
@@ -49,8 +48,8 @@ trait InstallsInertiaStacks
         if ($this->option('eslint')) {
             $this->updateNodePackages(function ($packages) {
                 return [
-                    'eslint' => '^8.57.0',
-                    'eslint-plugin-svelte' => '^2.35.1',
+                    'eslint' => '^9.7.0',
+                    'eslint-plugin-svelte' => '^2.36.0',
                     'eslint-config-prettier' => '^9.1.0',
                     'prettier' => '^3.3.3',
                     'prettier-plugin-organize-imports' => '^4.0.0',
@@ -62,28 +61,36 @@ trait InstallsInertiaStacks
             if ($this->option('typescript')) {
                 $this->updateNodePackages(function ($packages) {
                     return [
-                        '@types/eslint' => '^8.56.2',
-                        '@typescript-eslint/eslint-plugin' => '^6.19.1',
-                        '@typescript-eslint/parser' => '^6.19.1',
+                        '@types/eslint' => '^9.6.0',
+                        'typescript-eslint' => '^8.0.0',
                     ] + $packages;
                 });
 
-                // TODO: Something related with eslint goes here.
-                // $this->updateNodeScripts(function ($scripts) {
-                    
-                // });
+                
+                $this->updateNodeScripts(function ($scripts) {
+                    return $scripts + [
+                        'check' => 'svelte-check --tsconfig ./tsconfig.json',
+                        'check:watch' => 'svelte-check --tsconfig ./tsconfig.json --watch',
+                        'format' => 'prettier --write resources/js',
+                        'lint' => 'eslint resources/js --fix',
+                    ];
+                });
 
-                // TODO: Copy .estlintrc file from inertia-svelte-ts into the Laravel project
+                copy(__DIR__.'/../../stubs/inertia-svelte-ts/eslint.config.js', base_path('eslint.config.js'));
             } else {
-                // TODO: Something related with eslint goes here.
-                // $this->updateNodeScripts(function ($scripts) {
-                    
-                // });
+                $this->updateNodeScripts(function ($scripts) {
+                    return $scripts + [
+                        'check' => 'svelte-check --tsconfig ./jsconfig.json',
+                        'check:watch' => 'svelte-check --tsconfig ./jsconfig.json --watch',
+                        'format' => 'prettier --write resources/js',
+                        'lint' => 'eslint resources/js --fix',
+                    ];
+                });
 
-                // TODO: Copy .estlintrc file from inertia-svelte into the Laravel project
+                copy(__DIR__.'/../../stubs/inertia-svelte/eslint.config.js', base_path('eslint.config.js'));
             }
 
-            copy(base_path('vendor/laravel/breeze/stubs/inertia-common/.prettierrc'), base_path('.prettierrc'));
+            copy(__DIR__.'/../../stubs/inertia-svelte/.prettierrc', base_path('.prettierrc'));
         }
 
         // Providers...
@@ -173,7 +180,7 @@ trait InstallsInertiaStacks
             $this->replaceInFile('.vue', '.svelte', base_path('tailwind.config.js'));
             $this->replaceInFile('"vite build', '"tsc && vite build', base_path('package.json'));
         } else {
-            copy(base_path('vendor/laravel/breeze/stubs/inertia-common/jsconfig.json'), base_path('jsconfig.json'));
+            copy(__DIR__.'/../../stubs/inertia-svelte/jsconfig.json', base_path('jsconfig.json'));
             copy(__DIR__.'/../../stubs/inertia-svelte/resources/js/app.js', resource_path('js/app.js'));
 
             $this->replaceInFile('.vue', '.svelte', base_path('tailwind.config.js'));

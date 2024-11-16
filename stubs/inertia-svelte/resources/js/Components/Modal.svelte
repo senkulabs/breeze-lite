@@ -6,8 +6,7 @@
     // svelte-ignore non_reactive_update
     /** @type {HTMLDivElement} */
     let dialog;
-    /** @type {Document} */
-    let document;
+
     let { children, closeable = true, maxWidth = '2xl', onclose = () => {}, show = false } = $props();
 
     $effect(() => {
@@ -41,7 +40,6 @@
 </script>
 
 <svelte:window onkeydown={closeOnEscape}/>
-<svelte:document bind:this={document}/>
 
 {#if show}
 <div bind:this={dialog} style:display={show ? 'contents' : 'none'}>
