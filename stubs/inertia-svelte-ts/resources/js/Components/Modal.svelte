@@ -1,6 +1,5 @@
 <script lang="ts">
     import type { Snippet } from 'svelte';
-    import { onDestroy } from 'svelte';
     import { fade } from 'svelte/transition';
     import { cubicIn, cubicOut } from 'svelte/easing';
 
@@ -34,10 +33,10 @@
     $effect(() => {
         if (show) document.body.appendChild(dialog);
         if (document) document.body.style.overflow = show ? 'hidden' : 'visible';
-    })
 
-    onDestroy(() => {
-        if (document) document.body.style.overflow = 'visible';
+        return () => {
+            if (document) document.body.style.overflow = 'visible';
+        }
     })
 
     function close() {
