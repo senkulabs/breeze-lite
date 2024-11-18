@@ -1,6 +1,6 @@
 {
     "name": "senkulabs/breeze-lite",
-    "description": "Unofficial Laravel Breeze for Laravel + Inertia + Svelte.",
+    "description": "Unofficial Laravel Breeze for Inertia + Svelte.",
     "keywords": ["laravel-breeze", "laravel", "inertia", "svelte"],
     "license": "MIT",
     "require": {

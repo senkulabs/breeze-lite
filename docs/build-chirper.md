@@ -26,7 +26,7 @@ Once you have started the Artisan development server, your application will be a
 
 ## Installing Breeze Lite
 
-Next, we will give our application a head-start by installing Breeze Lite, an unofficial [Laravel Breeze](https://laravel.com/docs/starter-kits#laravel-breeze) for Laravel + Inertia + Svelte. According to bootcamp.laravel.com, here's a description of Laravel Breeze.
+Next, we will give our application a head-start by installing Breeze Lite, an unofficial [Laravel Breeze](https://laravel.com/docs/starter-kits#laravel-breeze) for Inertia + Svelte. According to bootcamp.laravel.com, here's a description of Laravel Breeze.
 
 > A minimal, simple implementation of all of Laravel's authentication features, including login, registration, password reset, email verification, and password confirmation. Once installed, you are welcome to customize the components to suit your needs.
 

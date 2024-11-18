@@ -1,6 +1,6 @@
 # Breeze Lite
 
-Unofficial Laravel Breeze for Laravel + Inertia + Svelte before Laravel Breeze ship the official for Inertia + Svelte. Until then, enjoy!
+Unofficial Laravel Breeze for Inertia + Svelte until Laravel Breeze ship the official for Inertia + Svelte. Until then, enjoy! 🍺
 
 > Lite = Laravel + Inertia + Svelte. I like it!
 

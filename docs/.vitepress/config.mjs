@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Breeze Lite",
-  description: "Unofficial Laravel Breeze for Laravel + Inertia + Svelte.",
+  description: "Unofficial Laravel Breeze Inertia + Svelte.",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
