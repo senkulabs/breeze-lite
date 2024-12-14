@@ -194,7 +194,7 @@ class ChirpPolicy
 Time to test it out! Go ahead and edit a few Chirps using the dropdown menu. If you register another user account, you'll see that only the author of a Chirp can edit it.
 
 ::: danger WAIT ✋
-Before go to the next chapter, do you see something weird when we edit a chirp, we get the incorrect chirp. But why? 🧐
+Before go to the next chapter, do you see something weird when we edit and update a chirp then we get the incorrect chirp. Why does it happened? 🧐
 :::
 
 ::: details Here's the answer. 👀

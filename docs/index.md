@@ -6,11 +6,11 @@ title: Home
 
 Unofficial Laravel Breeze for Inertia + Svelte until Laravel Breeze release the official for Inertia + Svelte. Until then, enjoy! 🍺
 
-> Lite = Laravel + Inertia + Svelte. I like it!
+> Lite = Laravel + Inertia + Svelte. It's lite and I like it!
 
 ## How to use?
 
-Breeze Lite build on top Laravel Breeze. The `php artisan breeze:install` command is a home for Breeze Lite and Laravel Breeze. So you don't miss the build in templates provided by Laravel Breeze like Blade with Alpine, Livewire, Vue, React, and API. Use command below to install Breeze Lite in your Laravel project.
+Breeze Lite build on top Laravel Breeze. The `php artisan breeze:install` command is a home for Breeze Lite and Laravel Breeze. So, you don't miss the built-in templates provided by Laravel Breeze like Blade with Alpine, Livewire, Vue, React, and API. Use command below to install Breeze Lite in your Laravel project.
 
 ```bash
 composer require senkulabs/breeze-lite --dev

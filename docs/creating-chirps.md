@@ -36,7 +36,7 @@ This command will create three files for you:
 
 ## Routing
 
-We will also need to create URLs for our controller. We can do this by adding "routes", which are managed in the routes directory of your project. Because we're using a resource controller, we can use a single Route::resource() statement to define all of the routes following a conventional URL structure.
+We will also need to create URLs for our controller. We can do this by adding "routes", which are managed in the routes directory of your project. Because we're using a resource controller, we can use a single `Route::resource()` statement to define all of the routes following a conventional URL structure.
 
 To start with, we are going to enable two routes:
 

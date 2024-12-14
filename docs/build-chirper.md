@@ -8,7 +8,7 @@ In this section, we will build a Chirper with Laravel + Inertia + Svelte by usin
 
 ## Installing Laravel
 
-If you have already [installed PHP and Composer on your local machine](https://herd.laravel.com/), you may create a new Laravel project via Composer:
+If you have [install PHP and Composer on your local machine](https://herd.laravel.com/), you may create a new Laravel project via Composer:
 
 ```bash
 composer create-project laravel/laravel chirper

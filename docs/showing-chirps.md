@@ -141,7 +141,7 @@ Finally, we will update our `Chirps/Index` page component to accept the `chirps`
 Now take a look in your browser to see the message you Chirped earlier!
 
 ::: danger STOP ✋
-Before go to the next chapter, do you see something weird like we add the chirp but it doesn't appeared instantly in our chirp list? If we refresh the page then it appears. But why? 🧐
+Before go to the next chapter, do you see something weird like when we add the chirp again but it doesn't appeared instantly in our chirp list? But, if we refresh the page then it appears. Why does it happened? 🧐
 :::
 
 ::: details Here's the answer. 👀
