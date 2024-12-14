@@ -9,6 +9,13 @@ export default defineConfig({
     pageData.frontmatter.head.push([
       'meta',
       {
+        name: 'og:type',
+        content: 'website'
+      },
+    ]);
+    pageData.frontmatter.head.push([
+      'meta',
+      {
         name: 'og:title',
         content:
           pageData.frontmatter.layout === 'home'
@@ -21,6 +28,13 @@ export default defineConfig({
       {
         name: 'og:description',
         content: pageData.frontmatter.description
+      },
+    ]);
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'twitter:card',
+        content: 'summary'
       },
     ]);
     pageData.frontmatter.head.push([
