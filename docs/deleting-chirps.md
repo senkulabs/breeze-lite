@@ -1,5 +1,6 @@
 ---
 title: Deleting Chirps
+description: Delete a chirp with Inertia and Svelte.
 outline: deep
 ---
 

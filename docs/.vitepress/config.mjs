@@ -4,6 +4,43 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: "Breeze Lite",
   description: "Unofficial Laravel Breeze Inertia + Svelte.",
+  transformPageData(pageData) {
+    pageData.frontmatter.head ??= [];
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'og:title',
+        content:
+          pageData.frontmatter.layout === 'home'
+            ? `Breeze Lite`
+            : `${pageData.title} | Breeze Lite`
+      },
+    ]);
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'og:description',
+        content: pageData.frontmatter.description
+      },
+    ]);
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'twitter:title',
+        content:
+          pageData.frontmatter.layout === 'home'
+            ? `Breeze Lite`
+            : `${pageData.title} | Breeze Lite`
+      },
+    ]);
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'twitter:description',
+        content: pageData.frontmatter.description
+      },
+    ]);
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

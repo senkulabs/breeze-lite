@@ -1,5 +1,6 @@
 ---
 title: Creating Chirps
+description: Create a chirp with Inertia and Svelte.
 outline: deep
 ---
 

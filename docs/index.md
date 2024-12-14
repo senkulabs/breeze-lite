@@ -1,5 +1,6 @@
 ---
 title: Home
+description: Unofficial Laravel Breeze for Inertia and Svelte.
 ---
 
 # Home

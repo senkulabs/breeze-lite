@@ -1,5 +1,6 @@
 ---
 title: Build Chirper
+description: Build chirper with Inertia and Svelte
 ---
 
 # Build Chirper

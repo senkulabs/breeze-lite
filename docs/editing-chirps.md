@@ -1,5 +1,6 @@
 ---
 title: Editing Chirps
+description: Edit a chirp with Inertia and Svelte.
 outline: deep
 ---
 

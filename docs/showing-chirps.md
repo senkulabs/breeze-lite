@@ -1,5 +1,6 @@
 ---
 title: Showing Chirps
+description: Show a chirp with Inertia and Svelte.
 outline: deep
 ---
 
