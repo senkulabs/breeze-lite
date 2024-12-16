@@ -25,18 +25,18 @@
 
     function deleteUser() {
         $form.delete(route('profile.destroy'), {
-            preserveScroll: true,
             onSuccess: () => closeModal(),
             onError: () => passwordInput?.focus(),
             onFinish: () => $form.reset(),
         });
-    };
+        confirmUserDeletion = false;
+    }
 
     function closeModal() {
         $form.clearErrors();
         $form.reset();
         confirmingUserDeletion = false;
-    };
+    }
 </script>
 
 <section class="space-y-6 {className}">

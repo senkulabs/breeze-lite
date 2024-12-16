@@ -16,12 +16,6 @@
         password: ''
     });
 
-    function closeModal() {
-        $form.clearErrors();
-        $form.reset();
-        confirmingUserDeletion = false;
-    }
-
     function confirmUserDeletion() {
         confirmingUserDeletion = true;
         setTimeout(() => passwordInput?.focus(), 250);
@@ -29,11 +23,17 @@
 
     function deleteUser() {
         $form.delete(route('profile.destroy'), {
-            preserveScroll: true,
             onSuccess: () => closeModal(),
             onError: () => passwordInput?.focus(),
             onFinish: () => $form.reset()
         });
+        confirmUserDeletion = false;
+    }
+
+    function closeModal() {
+        $form.clearErrors();
+        $form.reset();
+        confirmingUserDeletion = false;
     }
 </script>
 
