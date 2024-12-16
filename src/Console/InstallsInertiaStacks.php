@@ -27,7 +27,7 @@ trait InstallsInertiaStacks
             return [
                 '@inertiajs/svelte' => '^2.0.0',
                 '@tailwindcss/forms' => '^0.5.7',
-                '@sveltejs/vite-plugin-svelte' => '^4.0.0',
+                '@sveltejs/vite-plugin-svelte' => '^5.0.0',
                 'autoprefixer' => '^10.4.20',
                 'postcss' => '^8.4.33',
                 'tailwindcss' => '^3.4.10',
