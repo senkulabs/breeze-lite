@@ -27,7 +27,7 @@
             onError: () => passwordInput?.focus(),
             onFinish: () => $form.reset()
         });
-        confirmUserDeletion = false;
+        confirmingUserDeletion = false;
     }
 
     function closeModal() {
