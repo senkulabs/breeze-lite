@@ -1,20 +1,14 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte';
+    import type { ComponentProps, Snippet } from 'svelte';
     import { Link } from '@inertiajs/svelte';
-    import type { Method } from '@inertiajs/core';
 
     let {
         children,
         href,
-        method,
-        as,
         ...attrs
     }: {
         children: Snippet;
-        href: string;
-        method?: Method;
-        as?: keyof HTMLElementTagNameMap;
-    } = $props();
+    } & ComponentProps<Link> = $props();
 </script>
 
 <Link
