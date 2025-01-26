@@ -5,7 +5,6 @@
     let {
         active = false,
         children,
-        href,
         ...attrs
     }: {
         active?: boolean;
@@ -15,7 +14,6 @@
 
 <Link
     {...attrs}
-    {href}
     class={`
         block w-full border-l-4 py-2 pe-4 ps-3 text-start text-base font-medium transition duration-150 ease-in-out
         ${
