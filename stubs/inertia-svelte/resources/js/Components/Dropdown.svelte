@@ -6,7 +6,7 @@
         content,
         contentClasses = 'py-1 bg-white dark:bg-gray-700',
         trigger,
-        width = '48',
+        width = '48'
     } = $props();
 
     let open = $state(false);
@@ -16,20 +16,16 @@
             ? 'ltr:origin-top-left rtl:origin-top-right start-0'
             : align === 'right'
               ? 'ltr:origin-top-right rtl:origin-top-left end-0'
-              : 'origin-top',
-    )
+              : 'origin-top'
+    );
 
     function closeOnEscape(e) {
         if (open && e.key === 'Escape') {
-            open = false
+            open = false;
         }
     }
 
-    function enter(node, {
-        delay = 0,
-        duration = 200,
-        easing = cubicOut
-    }) {
+    function enter(node, { delay = 0, duration = 200, easing = cubicOut }) {
         return {
             delay,
             duration,
@@ -38,14 +34,10 @@
                 opacity: ${t};
                 transform: scale(${0.95 + 0.05 * t});
             `
-        }
+        };
     }
 
-    function leave(node, {
-        delay = 0,
-        duration = 75,
-        easing = cubicIn
-    }) {
+    function leave(node, { delay = 0, duration = 75, easing = cubicIn }) {
         return {
             delay,
             duration,
@@ -54,7 +46,7 @@
                 opacity: ${t};
                 transform: scale(${0.95 + 0.05 * t});
             `
-        }
+        };
     }
 </script>
 
@@ -71,8 +63,10 @@
     {#if open}
         <div class="fixed inset-0 z-40" onclick={() => (open = false)}></div>
         <div in:enter out:leave>
-            <div class="absolute z-50 mt-2 rounded-md shadow-lg {widthClass} {alignmentClasses}"
-            onclick={() => (open = false)}>
+            <div
+                class="absolute z-50 mt-2 rounded-md shadow-lg {widthClass} {alignmentClasses}"
+                onclick={() => (open = false)}
+            >
                 <div class="rounded-md ring-1 ring-black ring-opacity-5 {contentClasses}">
                     {@render content()}
                 </div>
