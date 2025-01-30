@@ -7,10 +7,7 @@
     import { inertia, useForm } from '@inertiajs/svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
 
-    let {
-        canResetPassword,
-        status
-    } = $props();
+    let { canResetPassword, status } = $props();
 
     const form = useForm({
         email: '',
@@ -21,8 +18,8 @@
     function submit(e) {
         e.preventDefault();
         $form.post(route('login'), {
-            onFinish: () => $form.reset('password'),
-        })
+            onFinish: () => $form.reset('password')
+        });
     }
 </script>
 
@@ -39,25 +36,40 @@
     {/if}
 
     <form onsubmit={submit}>
-
         <!-- Email Address -->
         <div>
             <InputLabel for="email" value="Email" />
-            <TextInput id="email" class="mt-1 block w-full" type="email" name="email" bind:value={$form.email} required autocomplete="username" />
+            <TextInput
+                id="email"
+                class="mt-1 block w-full"
+                type="email"
+                name="email"
+                bind:value={$form.email}
+                required
+                autocomplete="username"
+            />
             <InputError message={$form.errors.email} class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
             <InputLabel for="password" value="Password" />
-            <TextInput id="password" class="mt-1 block w-full" type="password" name="password" bind:value={$form.password} required autocomplete="current-password"/>
+            <TextInput
+                id="password"
+                class="mt-1 block w-full"
+                type="password"
+                name="password"
+                bind:value={$form.password}
+                required
+                autocomplete="current-password"
+            />
             <InputError message={$form.errors.password} class="mt-2" />
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
+        <div class="mt-4 block">
             <label for="remember-me" class="flex items-center">
-                <Checkbox id="remember-me" name="remember"/>
+                <Checkbox id="remember-me" name="remember" />
                 <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
             </label>
         </div>
@@ -73,7 +85,10 @@
                 </a>
             {/if}
 
-            <PrimaryButton class="ms-4 {$form.processing && 'opacity-25'}" disabled={$form.processing}>Log in</PrimaryButton>
+            <PrimaryButton
+                class="ms-4 {$form.processing && 'opacity-25'}"
+                disabled={$form.processing}>Log in</PrimaryButton
+            >
         </div>
     </form>
 </GuestLayout>

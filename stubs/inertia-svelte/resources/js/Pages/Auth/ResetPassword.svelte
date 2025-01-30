@@ -4,7 +4,7 @@
     import InputLabel from '@/Components/InputLabel.svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
-    
+
     import { useForm } from '@inertiajs/svelte';
 
     let { email, token } = $props();
@@ -13,13 +13,13 @@
         token: token,
         email: email,
         password: '',
-        password_confirmation: '',
-    })
+        password_confirmation: ''
+    });
 
     function submit(e) {
         e.preventDefault();
         $form.post(route('password.store'), {
-            onFinish: () => $form.reset('password', 'password_confirmation'),
+            onFinish: () => $form.reset('password', 'password_confirmation')
         });
     }
 </script>

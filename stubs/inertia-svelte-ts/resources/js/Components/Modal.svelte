@@ -56,13 +56,13 @@
 
 {#if show}
     <div bind:this={dialog} style:display={show ? 'contents' : 'none'}>
-        <div class="fixed inset-0 z-50 px-4 py-6 overflow-y-auto sm:px-0" scroll-region>
+        <div class="fixed inset-0 z-50 overflow-y-auto px-4 py-6 sm:px-0" scroll-region>
             <div
                 in:fade={{ duration: 300, easing: cubicOut }}
                 out:fade={{ duration: 200, easing: cubicIn }}
             >
                 <!-- svelte-ignore a11y_consider_explicit_label -->
-                <button class="fixed inset-0 transition-all transform-select-none" onclick={close}>
+                <button class="transform-select-none fixed inset-0 transition-all" onclick={close}>
                     <div class="absolute inset-0 bg-gray-500 opacity-75 dark:bg-gray-900">
                         &nbsp;
                     </div>
@@ -74,7 +74,7 @@
                 out:fade={{ duration: 200, easing: cubicIn }}
             >
                 <div
-                    class="mb-6 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto {maxWidthClass}"
+                    class="mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full dark:bg-gray-800 {maxWidthClass}"
                 >
                     {@render children()}
                 </div>

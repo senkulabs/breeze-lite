@@ -4,18 +4,18 @@
     import InputLabel from '@/Components/InputLabel.svelte';
     import PrimaryButton from '@/Components/PrimaryButton.svelte';
     import TextInput from '@/Components/TextInput.svelte';
-    
+
     import { useForm } from '@inertiajs/svelte';
 
     const form = useForm({
-        password: '',
+        password: ''
     });
 
     function submit(e) {
-        e.preventDefault()
+        e.preventDefault();
 
         $form.post(route('password.confirm'), {
-            onFinish: () => $form.reset(),
+            onFinish: () => $form.reset()
         });
     }
 </script>
@@ -45,8 +45,9 @@
         </div>
 
         <div class="mt-4 flex justify-end">
-            <PrimaryButton class="ms-4 {$form.processing && 'opacity-25'}" disabled={$form.processing}
-                >Confirm</PrimaryButton
+            <PrimaryButton
+                class="ms-4 {$form.processing && 'opacity-25'}"
+                disabled={$form.processing}>Confirm</PrimaryButton
             >
         </div>
     </form>
