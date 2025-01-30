@@ -14,11 +14,11 @@
 <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
     <nav class="border-b border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-800">
         <!-- Primary Navigation Menu -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 justify-between">
                 <div class="flex">
                     <!-- Logo -->
-                    <div class="shrink-0 flex items-center">
+                    <div class="flex shrink-0 items-center">
                         <a use:inertia href={route('dashboard')}>
                             <ApplicationLogo
                                 class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200"
@@ -133,7 +133,7 @@
 
     <!-- Page Heading -->
     {#if header}
-        <header class="bg-white dark:bg-gray-800 shadow">
+        <header class="bg-white shadow dark:bg-gray-800">
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                 {@render header()}
             </div>

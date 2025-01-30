@@ -67,7 +67,7 @@
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
+        <div class="mt-4 block">
             <label for="remember-me" class="flex items-center">
                 <Checkbox id="remember-me" name="remember" />
                 <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
