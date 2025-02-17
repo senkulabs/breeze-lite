@@ -18,7 +18,7 @@ trait InstallsInertiaStacks
     protected function installInertiaSvelteStack()
     {
         // Install Inertia...
-        if (! $this->requireComposerPackages(['inertiajs/inertia-laravel:^1.0', 'laravel/sanctum:^4.0', 'tightenco/ziggy:^2.0'])) {
+        if (! $this->requireComposerPackages(['inertiajs/inertia-laravel:^2.0', 'laravel/sanctum:^4.0', 'tightenco/ziggy:^2.0'])) {
             return 1;
         }
 
@@ -66,7 +66,7 @@ trait InstallsInertiaStacks
                     ] + $packages;
                 });
 
-                
+
                 $this->updateNodeScripts(function ($scripts) {
                     return $scripts + [
                         'check' => 'svelte-check --tsconfig ./tsconfig.json',
