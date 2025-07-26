@@ -157,7 +157,7 @@ Finally, we can add a delete button to the dropdown menu we created earlier in o
         </div>
         {#if editing}
             <form onsubmit={submit}>
-                <textarea bind:value={$form.message} class="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
+                <textarea bind:value={$form.message} class="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-indigo/50 rounded-md shadow-sm"></textarea>
                 <InputError message={$form.errors.message} class="mt-2" />
                 <div class="space-x-2">
                     <PrimaryButton class="mt-4">Save</PrimaryButton>

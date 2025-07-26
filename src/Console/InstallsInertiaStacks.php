@@ -27,10 +27,9 @@ trait InstallsInertiaStacks
             return [
                 '@inertiajs/svelte' => '^2.0.0',
                 '@tailwindcss/forms' => '^0.5.7',
-                '@sveltejs/vite-plugin-svelte' => '^5.0.0',
-                'autoprefixer' => '^10.4.20',
-                'postcss' => '^8.4.33',
-                'tailwindcss' => '^3.4.10',
+                '@tailwindcss/vite' => '^4.0.0',
+                '@sveltejs/vite-plugin-svelte' => '^6.0.0',
+                'tailwindcss' => '^4.0.0',
                 'svelte' => '^5.0',
                 'svelte-check' => '^4.0.0',
             ] + $packages;
@@ -158,10 +157,9 @@ trait InstallsInertiaStacks
         copy(base_path('vendor/laravel/breeze/stubs/inertia-common/routes/auth.php'), base_path('routes/auth.php'));
 
         // Tailwind / Vite...
-        copy(base_path('vendor/laravel/breeze/stubs/default/resources/css/app.css'), resource_path('css/app.css'));
-        copy(base_path('vendor/laravel/breeze/stubs/default/postcss.config.js'), base_path('postcss.config.js'));
-        copy(base_path('vendor/laravel/breeze/stubs/inertia-common/tailwind.config.js'), base_path('tailwind.config.js'));
         copy(__DIR__.'/../../stubs/inertia-svelte/vite.config.js', base_path('vite.config.js'));
+        copy(__DIR__.'/../../stubs/default/resources/css/app.css', resource_path('css/app.css'));
+        $this->replaceInFile('.js', '.svelte', resource_path('css/app.css'));
 
         if ($this->option('typescript')) {
             copy(__DIR__.'/../../stubs/inertia-svelte-ts/tsconfig.json', base_path('tsconfig.json'));
@@ -177,13 +175,10 @@ trait InstallsInertiaStacks
 
             $this->replaceInFile('.js', '.ts', base_path('vite.config.js'));
             $this->replaceInFile('.js', '.ts', resource_path('views/app.blade.php'));
-            $this->replaceInFile('.vue', '.svelte', base_path('tailwind.config.js'));
             $this->replaceInFile('"vite build', '"tsc && vite build', base_path('package.json'));
         } else {
             copy(__DIR__.'/../../stubs/inertia-svelte/jsconfig.json', base_path('jsconfig.json'));
             copy(__DIR__.'/../../stubs/inertia-svelte/resources/js/app.js', resource_path('js/app.js'));
-
-            $this->replaceInFile('.vue', '.svelte', base_path('tailwind.config.js'));
         }
 
         if ($this->option('ssr')) {

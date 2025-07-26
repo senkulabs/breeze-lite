@@ -67,7 +67,7 @@
                 class="absolute z-50 mt-2 rounded-md shadow-lg {widthClass} {alignmentClasses}"
                 onclick={() => (open = false)}
             >
-                <div class="rounded-md ring-1 ring-black ring-opacity-5 {contentClasses}">
+                <div class="rounded-md ring ring-black ring-black/20 {contentClasses}">
                     {@render content()}
                 </div>
             </div>
