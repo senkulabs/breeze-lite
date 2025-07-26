@@ -61,15 +61,8 @@
                         &nbsp;
                     </div>
                 </button>
-            </div>
 
-            <div
-                in:fade={{ duration: 300, easing: cubicOut }}
-                out:fade={{ duration: 200, easing: cubicIn }}
-            >
-                <div
-                    class="mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full dark:bg-gray-800 {maxWidthClass}"
-                >
+                <div class="relative mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full dark:bg-gray-800 {maxWidthClass}">
                     {@render children()}
                 </div>
             </div>

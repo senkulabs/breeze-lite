@@ -54,7 +54,7 @@
                             <a
                                 use:inertia
                                 href={route('dashboard')}
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                class="rounded-md px-3 py-2 text-black ring ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                             >
                                 Dashboard
                             </a>
@@ -62,7 +62,7 @@
                             <a
                                 use:inertia
                                 href={route('login')}
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                class="rounded-md px-3 py-2 text-black ring ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                             >
                                 Log in
                             </a>
@@ -71,7 +71,7 @@
                                 <a
                                     use:inertia
                                     href={route('register')}
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    class="rounded-md px-3 py-2 text-black ring ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                 >
                                     Register
                                 </a>
@@ -86,7 +86,7 @@
                     <a
                         href="https://laravel.com/docs"
                         id="docs-card"
-                        class="flex flex-col items-start gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
+                        class="flex flex-col items-start gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
                     >
                         <div
                             id="screenshot-container"
@@ -162,7 +162,7 @@
 
                     <a
                         href="https://laracasts.com"
-                        class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
+                        class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
                     >
                         <div
                             class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16"
@@ -210,7 +210,7 @@
 
                     <a
                         href="https://laravel-news.com"
-                        class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
+                        class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
                     >
                         <div
                             class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16"
@@ -263,7 +263,7 @@
                     </a>
 
                     <div
-                        class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800"
+                        class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring ring-white/[0.05] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800"
                     >
                         <div
                             class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16"
@@ -291,59 +291,59 @@
                                 Laravel's robust library of first-party tools and libraries, such as
                                 <a
                                     href="https://forge.laravel.com"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white dark:focus-visible:ring-[#FF2D20]"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white dark:focus-visible:ring-[#FF2D20]"
                                     >Forge</a
                                 >,
                                 <a
                                     href="https://vapor.laravel.com"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Vapor</a
                                 >,
                                 <a
                                     href="https://nova.laravel.com"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Nova</a
                                 >,
                                 <a
                                     href="https://envoyer.io"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Envoyer</a
                                 >, and
                                 <a
                                     href="https://herd.laravel.com"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Herd</a
                                 >
                                 help you take your projects to the next level. Pair them with powerful
                                 open source libraries like
                                 <a
                                     href="https://laravel.com/docs/billing"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Cashier</a
                                 >,
                                 <a
                                     href="https://laravel.com/docs/dusk"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Dusk</a
                                 >,
                                 <a
                                     href="https://laravel.com/docs/broadcasting"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Echo</a
                                 >,
                                 <a
                                     href="https://laravel.com/docs/horizon"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Horizon</a
                                 >,
                                 <a
                                     href="https://laravel.com/docs/sanctum"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Sanctum</a
                                 >,
                                 <a
                                     href="https://laravel.com/docs/telescope"
-                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white"
+                                    class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring focus-visible:ring-[#FF2D20] dark:hover:text-white"
                                     >Telescope</a
                                 >, and more.
                             </p>

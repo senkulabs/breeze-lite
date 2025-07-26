@@ -1,5 +1,9 @@
 # Breeze Lite
 
+> [!WARNING]
+> The version 2.1 is the last version of Breeze Lite. Since Laravel version 12 encourage programmer to use starter kit then the Laravel Breeze will be abandon and Breeze Lite too.
+> The version 2.1 requires NodeJS version with minimum version 20.19.0 or >= 22.12.0. Please see [issue #24](https://github.com/senkulabs/breeze-lite/issues/24).
+
 Unofficial Laravel Breeze for Inertia + Svelte until Laravel Breeze ship the official for Inertia + Svelte. Until then, enjoy! 🍺
 
 > Lite = Laravel + Inertia + Svelte. I like it!

@@ -100,7 +100,7 @@ We're going to use the `Dropdown` component that comes with Breeze, which we'll 
         </div>
         {#if editing} // [!code ++]
             <form onsubmit={submit}> // [!code ++]
-                <textarea bind:value={$form.message} class="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea> // [!code ++]
+                <textarea bind:value={$form.message} class="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-indigo/50 rounded-md shadow-sm"></textarea> // [!code ++]
                 <InputError message={$form.errors.message} class="mt-2" /> // [!code ++]
                 <div class="space-x-2"> // [!code ++]
                     <PrimaryButton class="mt-4">Save</PrimaryButton> // [!code ++]
