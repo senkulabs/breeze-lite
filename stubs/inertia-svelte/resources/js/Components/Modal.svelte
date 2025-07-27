@@ -11,15 +11,6 @@
         show = false
     } = $props();
 
-    $effect(() => {
-        if (show) document.body.appendChild(dialog);
-        if (document) document.body.style.overflow = show ? 'hidden' : 'visible';
-
-        return () => {
-            if (document) document.body.style.overflow = 'visible';
-        };
-    });
-
     const close = () => {
         if (closeable) {
             onclose();
