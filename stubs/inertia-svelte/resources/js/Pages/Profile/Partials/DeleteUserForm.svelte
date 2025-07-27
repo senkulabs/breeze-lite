@@ -23,10 +23,15 @@
         setTimeout(() => passwordInput?.focus(), 250);
     }
 
-    function deleteUser() {
+    function deleteUser(e) {
+        e.preventDefault();
         $form.delete(route('profile.destroy'), {
             preserveScroll: true,
-            onSuccess: () => closeModal(),
+            onSuccess: () => {
+                closeModal();
+                // Force scroll to top after redirect because it redirect to welcome page
+                window.scrollTo(0, 0);
+            },
             onError: () => passwordInput?.focus(),
             onFinish: () => $form.reset()
         });
@@ -63,31 +68,33 @@
                 your account.
             </p>
 
-            <div class="mt-6">
-                <InputLabel for="password" value="Password" class="sr-only" />
+            <form onsubmit={deleteUser}>
+                <div class="mt-6">
+                    <InputLabel for="password" value="Password" class="sr-only" />
 
-                <TextInput
-                    id="password"
-                    bind:this={passwordInput}
-                    bind:value={$form.password}
-                    type="password"
-                    class="mt-1 block w-full"
-                    placeholder="Password"
-                    onkeyup={(event) => {
-                        if (event.key === 'Enter') deleteUser();
-                    }}
-                />
+                    <TextInput
+                        id="password"
+                        bind:this={passwordInput}
+                        bind:value={$form.password}
+                        type="password"
+                        class="mt-1 block w-full"
+                        placeholder="Password"
+                        onkeyup={(event) => {
+                            if (event.key === 'Enter') deleteUser();
+                        }}
+                    />
 
-                <InputError message={$form.errors.password} class="mt-2" />
-            </div>
+                    <InputError message={$form.errors.password} class="mt-2" />
+                </div>
 
-            <div class="mt-6 flex justify-end">
-                <SecondaryButton onclick={closeModal}>Cancel</SecondaryButton>
+                <div class="mt-6 flex justify-end">
+                    <SecondaryButton onclick={closeModal}>Cancel</SecondaryButton>
 
-                <DangerButton class="ml-3" processing={$form.processing} onclick={deleteUser}>
-                    Delete Account
-                </DangerButton>
-            </div>
+                    <DangerButton type="submit" class="ml-3" processing={$form.processing} onclick={deleteUser}>
+                        Delete Account
+                    </DangerButton>
+                </div>
+            </form>
         </div>
     </Modal>
 </section>
