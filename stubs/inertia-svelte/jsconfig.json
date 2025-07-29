@@ -6,6 +6,6 @@
             "ziggy-js": ["./vendor/tightenco/ziggy"]
         }
     },
-    "include": ["resources/js/**/*.js", "resources/js/**/*.svelte"],
+    "include": ["resources/js/**/*.js", "resources/js/**/*.svelte", "resources/js/**/*.svelte.js"],
     "exclude": ["node_modules", "public", "vendor"]
 }
