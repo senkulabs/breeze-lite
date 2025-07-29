@@ -5,7 +5,7 @@ description: Unofficial Laravel Breeze for Inertia and Svelte.
 
 # Home
 
-Unofficial Laravel Breeze for Inertia + Svelte until Laravel Breeze release the official for Inertia + Svelte. Until then, enjoy! 🍺
+Unofficial Laravel Breeze for Inertia + Svelte. Enjoy! 🍺
 
 > Lite = Laravel + Inertia + Svelte. It's lite and I like it!
 
