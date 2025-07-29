@@ -47,8 +47,8 @@ trait InstallsInertiaStacks
         if ($this->option('eslint')) {
             $this->updateNodePackages(function ($packages) {
                 return [
-                    'eslint' => '^9.7.0',
-                    'eslint-plugin-svelte' => '^2.36.0',
+                    'eslint' => '^9.32.0',
+                    'eslint-plugin-svelte' => '^3.11.0',
                     'eslint-config-prettier' => '^9.1.0',
                     'prettier' => '^3.3.3',
                     'prettier-plugin-organize-imports' => '^4.0.0',
@@ -156,8 +156,9 @@ trait InstallsInertiaStacks
         copy(base_path('vendor/laravel/breeze/stubs/inertia-common/routes/web.php'), base_path('routes/web.php'));
         copy(base_path('vendor/laravel/breeze/stubs/inertia-common/routes/auth.php'), base_path('routes/auth.php'));
 
-        // Tailwind / Vite...
+        // Tailwind / Vite / Svelte...
         copy(__DIR__.'/../../stubs/inertia-svelte/vite.config.js', base_path('vite.config.js'));
+        copy(__DIR__.'/../../stubs/inertia-svelte/svelte.config.js', base_path('svelte.config.js'));
         copy(__DIR__.'/../../stubs/default/resources/css/app.css', resource_path('css/app.css'));
         $this->replaceInFile('.js', '.svelte', resource_path('css/app.css'));
 
